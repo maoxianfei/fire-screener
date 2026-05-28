@@ -1,58 +1,48 @@
 """
-多市场 K 线数据拉取模块
+A股 K线数据拉取 (mootdx)
 ========================
-支持 A 股 (mootdx)、港股 (Yahoo/腾讯)、美股 (新浪/Yahoo)
-日线/周线/月线三维度 K 线数据获取。
+- fetch_klines(): 拉取单只股票K线
+- get_stock_list(): 获取全市场A股列表
+- fetch_current_prices(): 批量获取最新收盘价
 """
 
-from datetime import datetime, timedelta
-from typing import Optional
-import requests
-import re
-import json
+import threading
+from mootdx.quotes import Quotes
 
-from hexagram_engine import KLine
+# K线周期映射
+_FREQ_MAP = {"daily": 9, "weekly": 5, "monthly": 6}
+
+# Thread-local client，每个线程复用一个连接
+_local = threading.local()
 
 
-# ============================================================
-# A股 — mootdx K线
-# ============================================================
+def _get_client() -> Quotes:
+    """获取当前线程的 mootdx client（懒初始化，复用连接）"""
+    if not hasattr(_local, "client"):
+        _local.client = Quotes.factory(market="std")
+    return _local.client
 
-def fetch_a_share_klines(
+
+def fetch_klines(
     code: str,
     period: str = "daily",
     count: int = 120,
-) -> list[KLine]:
+) -> list[dict]:
     """
-    拉取 A 股 K 线数据 (mootdx TCP)
+    拉取单只A股K线数据
 
     Args:
-        code: 6位股票代码, 如 "000001", "600519"
-        period: "daily" (日线) | "weekly" (周线) | "monthly" (月线)
-        count: 拉取数量 (建议至少72根日线, 可生成67个卦象)
+        code: 6位股票代码
+        period: "daily" | "weekly" | "monthly"
+        count: 拉取数量
 
     Returns:
-        按时间升序排列的 KLine 列表
+        按时间升序排列的K线列表, 每项:
+        {"date": "YYYY-MM-DD", "open": float, "high": float,
+         "low": float, "close": float, "volume": float}
     """
-    from mootdx.quotes import Quotes
-
-    # mootdx frequency 映射 (注意: 参数名是 frequency 不是 category)
-    # frequency: 9=日线, 5=周线, 6=月线
-    frequency_map = {
-        "daily": 9,
-        "weekly": 5,
-        "monthly": 6,
-    }
-    freq = frequency_map.get(period, 9)
-
-    # market: 0=深圳, 1=上海
-    if code.startswith(("6", "9")):
-        market = 1
-    else:
-        market = 0
-
-    client = Quotes.factory(market="std")
-    raw = client.bars(symbol=code, frequency=freq, offset=count)
+    client = _get_client()
+    raw = client.bars(symbol=code, frequency=_FREQ_MAP.get(period, 9), offset=count)
 
     if raw is None or len(raw) == 0:
         return []
@@ -60,243 +50,95 @@ def fetch_a_share_klines(
     klines = []
     for _, row in raw.iterrows():
         dt = str(row.get("datetime", ""))
-        date = str(dt)[:10] if dt else ""
+        date = dt[:10] if dt else ""
         if not date:
             continue
+        klines.append({
+            "date": date,
+            "open": float(row.get("open", 0)),
+            "high": float(row.get("high", 0)),
+            "low": float(row.get("low", 0)),
+            "close": float(row.get("close", 0)),
+            "volume": float(row.get("vol", 0)),
+        })
 
-        klines.append(KLine(
-            date=date,
-            open=float(row.get("open", 0)),
-            high=float(row.get("high", 0)),
-            low=float(row.get("low", 0)),
-            close=float(row.get("close", 0)),
-            volume=float(row.get("vol", 0)),
-        ))
-
-    # 按日期升序排序
-    klines.sort(key=lambda k: k.date)
+    klines.sort(key=lambda k: k["date"])
     return klines
 
 
-# ============================================================
-# 港股 — Yahoo Finance K线
-# ============================================================
-
-def fetch_hk_klines_yahoo(
-    code: str,
-    period: str = "daily",
-    count: int = 120,
-) -> list[KLine]:
+def get_stock_list() -> list[tuple[str, str]]:
     """
-    拉取港股 K 线 (Yahoo Finance chart API)
-
-    Args:
-        code: 港股代码, 如 "00700", "09988", "01810"
-        period: "daily" | "weekly" | "monthly"
-        count: 数量 (Yahoo range 方式: 1y/2y/5y/max)
+    获取全市场A股列表 (沪深主板 + 科创/创业板 + 北交所)
 
     Returns:
-        KLine 列表
+        [(code, name), ...]
     """
-    symbol = f"{int(code):04d}.HK"
+    client = _get_client()
+    results = []
 
-    # interval 映射
-    interval_map = {
-        "daily": "1d",
-        "weekly": "1wk",
-        "monthly": "1mo",
-    }
-    interval = interval_map.get(period, "1d")
+    # 沪市: 60xxxx(主板) + 688xxx(科创板)
+    sh = client.stocks(market=1)
+    if sh is not None and len(sh) > 0:
+        mask = sh["code"].str.match(r"^60\d{4}$") | sh["code"].str.match(r"^688\d{3}$")
+        for _, row in sh[mask].iterrows():
+            results.append((row["code"], row["name"]))
 
-    # range 映射 (根据需要的数量近似)
-    if count <= 30:
-        range_ = "1mo"
-    elif count <= 90:
-        range_ = "3mo"
-    elif count <= 250:
-        range_ = "1y"
-    elif count <= 500:
-        range_ = "2y"
-    elif count <= 1250:
-        range_ = "5y"
-    else:
-        range_ = "max"
+    # 深市: 00xxxx(主板) + 300xxx(创业板) + 8xxxxx/4xxxxx(北交所)
+    sz = client.stocks(market=0)
+    if sz is not None and len(sz) > 0:
+        mask = (
+            sz["code"].str.match(r"^00\d{4}$")
+            | sz["code"].str.match(r"^30\d{4}$")
+            | sz["code"].str.match(r"^8\d{5}$")
+            | sz["code"].str.match(r"^4\d{5}$")
+        )
+        for _, row in sz[mask].iterrows():
+            results.append((row["code"], row["name"]))
 
-    url = f"https://query2.finance.yahoo.com/v8/finance/chart/{symbol}"
-    params = {"interval": interval, "range": range_}
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-    }
-
-    try:
-        r = requests.get(url, params=params, headers=headers, timeout=15)
-        r.raise_for_status()
-    except Exception as e:
-        print(f"[ERROR] Yahoo K线请求失败: {e}")
-        return []
-
-    d = r.json()
-    chart = d.get("chart", {}).get("result", [{}])
-    if not chart or not chart[0]:
-        return []
-
-    result = chart[0]
-    timestamps = result.get("timestamp", [])
-    quote = result.get("indicators", {}).get("quote", [{}])[0]
-
-    if not timestamps:
-        return []
-
-    klines = []
-    for i, ts in enumerate(timestamps):
-        dt = datetime.fromtimestamp(ts)
-        if period == "daily":
-            date_str = dt.strftime("%Y-%m-%d")
-        else:
-            date_str = dt.strftime("%Y-%m-%d")
-
-        o = quote["open"][i]
-        h = quote["high"][i]
-        l = quote["low"][i]
-        c = quote["close"][i]
-        v = quote["volume"][i] or 0
-
-        # 跳过空值
-        if o is None or c is None:
-            continue
-
-        klines.append(KLine(
-            date=date_str,
-            open=round(float(o), 3),
-            high=round(float(h), 3) if h else round(float(o), 3),
-            low=round(float(l), 3) if l else round(float(o), 3),
-            close=round(float(c), 3),
-            volume=float(v),
-        ))
-
-    klines.sort(key=lambda k: k.date)
-    return klines
+    results.sort(key=lambda x: x[0])
+    return results
 
 
-# ============================================================
-# 美股 — Yahoo Finance K线
-# ============================================================
-
-def fetch_us_klines_yahoo(
-    ticker: str,
-    period: str = "daily",
-    count: int = 120,
-) -> list[KLine]:
+def fetch_current_prices(
+    codes: list[str],
+    max_workers: int = 10,
+) -> dict[str, float]:
     """
-    拉取美股 K 线 (Yahoo Finance)
+    批量获取最新收盘价
 
     Args:
-        ticker: 美股代码, 如 "AAPL", "TSLA"
-        period: "daily" | "weekly" | "monthly"
-        count: 数量
+        codes: 股票代码列表
+        max_workers: 并发数
 
     Returns:
-        KLine 列表
+        {code: price, ...}
     """
-    interval_map = {
-        "daily": "1d",
-        "weekly": "1wk",
-        "monthly": "1mo",
-    }
-    interval = interval_map.get(period, "1d")
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    if count <= 30:
-        range_ = "1mo"
-    elif count <= 90:
-        range_ = "3mo"
-    elif count <= 250:
-        range_ = "1y"
-    elif count <= 500:
-        range_ = "2y"
-    elif count <= 1250:
-        range_ = "5y"
-    else:
-        range_ = "max"
+    prices: dict[str, float] = {}
 
-    url = f"https://query2.finance.yahoo.com/v8/finance/chart/{ticker}"
-    params = {"interval": interval, "range": range_}
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-    }
+    def _get_one(code: str) -> tuple[str, float]:
+        try:
+            client = _get_client()
+            df = client.bars(symbol=code, frequency=9, offset=1)
+            if df is not None and len(df) > 0:
+                p = float(df.iloc[-1]["close"])
+                if p > 0:
+                    return (code, p)
+        except Exception:
+            pass
+        return (code, 0.0)
 
-    try:
-        r = requests.get(url, params=params, headers=headers, timeout=15)
-        r.raise_for_status()
-    except Exception as e:
-        print(f"[ERROR] Yahoo K线请求失败: {e}")
-        return []
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futures = {pool.submit(_get_one, c): c for c in codes}
+        done = 0
+        for fut in as_completed(futures):
+            code, price = fut.result()
+            if price > 0:
+                prices[code] = price
+            done += 1
+            if done % 500 == 0:
+                print(f"    价格采集进度: {done}/{len(codes)} (已获取 {len(prices)} 只)")
 
-    d = r.json()
-    chart = d.get("chart", {}).get("result", [{}])
-    if not chart or not chart[0]:
-        return []
-
-    result = chart[0]
-    timestamps = result.get("timestamp", [])
-    quote = result.get("indicators", {}).get("quote", [{}])[0]
-
-    if not timestamps:
-        return []
-
-    klines = []
-    for i, ts in enumerate(timestamps):
-        dt = datetime.fromtimestamp(ts)
-        date_str = dt.strftime("%Y-%m-%d")
-
-        o = quote["open"][i]
-        h = quote["high"][i]
-        l = quote["low"][i]
-        c = quote["close"][i]
-        v = quote["volume"][i] or 0
-
-        if o is None or c is None:
-            continue
-
-        klines.append(KLine(
-            date=date_str,
-            open=round(float(o), 2),
-            high=round(float(h), 2) if h else round(float(o), 2),
-            low=round(float(l), 2) if l else round(float(o), 2),
-            close=round(float(c), 2),
-            volume=float(v),
-        ))
-
-    klines.sort(key=lambda k: k.date)
-    return klines
-
-
-# ============================================================
-# 统一接口
-# ============================================================
-
-def fetch_klines(
-    code: str,
-    market: str = "a",
-    period: str = "daily",
-    count: int = 120,
-) -> list[KLine]:
-    """
-    统一 K 线拉取接口
-
-    Args:
-        code: 股票代码
-        market: "a" (A股), "hk" (港股), "us" (美股)
-        period: "daily" | "weekly" | "monthly"
-        count: 拉取数量
-
-    Returns:
-        KLine 列表
-    """
-    if market == "a":
-        return fetch_a_share_klines(code, period, count)
-    elif market == "hk":
-        return fetch_hk_klines_yahoo(code, period, count)
-    elif market == "us":
-        return fetch_us_klines_yahoo(code, period, count)
-    else:
-        raise ValueError(f"不支持的市场: {market}")
+    print(f"    价格采集完成: {len(prices)}/{len(codes)} 只")
+    return prices
