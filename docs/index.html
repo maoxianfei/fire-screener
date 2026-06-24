@@ -235,6 +235,7 @@ function render() {
 load();
 
 function exportCodes() {
+  // 方式1: 下载文件
   const groups = data.groups || {};
   const allCodes = [];
   for (const gname in groups) {
@@ -242,9 +243,7 @@ function exportCodes() {
       allCodes.push(s.code);
     }
   }
-  // 去重
   const codes = [...new Set(allCodes)];
-  // 生成同花顺导入格式：6位代码，一行一个
   const text = codes.join('\n');
   const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
@@ -253,6 +252,11 @@ function exportCodes() {
   link.download = '股票池代码.txt';
   link.click();
   URL.revokeObjectURL(url);
+
+  // 方式2: 显示在线导入链接（同花顺可用）
+  const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+  const exportUrl = baseUrl + '/data/export.txt';
+  alert('共 ' + codes.length + ' 只股票\n\n在线导入链接（同花顺可用）:\n' + exportUrl + '\n\n已同时下载文件，可直接导入。');
 }
 </script>
 </body>
