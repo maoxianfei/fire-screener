@@ -105,6 +105,13 @@
     }
     .search-box:focus { border-color: rgba(0,204,102,0.3); }
     .search-box::placeholder { color: rgba(255,255,255,0.2); }
+    .export-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(0,204,102,0.2);
+      background: rgba(0,204,102,0.08); color: #00cc66; cursor: pointer;
+      font-size: 0.82rem; transition: all 0.2s;
+    }
+    .export-btn:hover { background: rgba(0,204,102,0.15); border-color: rgba(0,204,102,0.4); }
 
     @media (max-width: 600px) {
       body { padding: 10px; }
@@ -121,9 +128,14 @@
       <svg class="header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg>
       <h1 class="header-title">股票池</h1>
       <span class="update-time" id="update-time"></span>
+      <a id="export-link" style="display:none;"></a>
     </div>
     <div class="header-right">
       <input type="text" class="search-box" id="search" placeholder="搜索代码或名称..." oninput="render()">
+      <button class="export-btn" onclick="exportCodes()" title="导出股票代码">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        导出
+      </button>
     </div>
   </header>
 
@@ -221,6 +233,27 @@ function render() {
 }
 
 load();
+
+function exportCodes() {
+  const groups = data.groups || {};
+  const allCodes = [];
+  for (const gname in groups) {
+    for (const s of groups[gname]) {
+      allCodes.push(s.code);
+    }
+  }
+  // 去重
+  const codes = [...new Set(allCodes)];
+  // 生成同花顺导入格式：6位代码，一行一个
+  const text = codes.join('\n');
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.getElementById('export-link');
+  link.href = url;
+  link.download = '股票池代码.txt';
+  link.click();
+  URL.revokeObjectURL(url);
+}
 </script>
 </body>
 </html>
