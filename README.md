@@ -165,6 +165,21 @@ python 指标/zhuli_xichou.py 600519 --period monthly
 
 ---
 
+---
+
+## 每周关注 — GitHub Pages 展示
+
+`docs/` 目录部署了每周关注股票列表的静态网页，通过 **GitHub Pages** 访问：
+
+- **地址**: https://maoxianfei.github.io/fire-screener/
+- **配置**: 仓库 Settings → Pages → 分支 `master`，目录 `/docs`
+- **数据结构**: `docs/data/watchlists.json` (当前) + `docs/data/history/` (历史归档)
+- **更新**: 修改 JSON 数据后推送即可自动生效（约1分钟）
+
+具体数据格式和更新流程见 `docs/README.md`。
+
+---
+
 ## 关联项目
 
 - `~/claude_code/stock-strategy/` — 股票池管理、回测
