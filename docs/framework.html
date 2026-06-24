@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十五五投资框架</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0a0f1a;
+      color: #e6edf3;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 15% 30%, rgba(0,255,136,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse at 85% 70%, rgba(96,165,250,0.03) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+    #app { position: relative; z-index: 1; display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px; flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.2);
+      padding: 16px 0;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); }
+    .sidebar-header {
+      padding: 0 14px 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 8px;
+    }
+    .sidebar-header h1 { font-size: 0.92rem; font-weight: 600; color: #00cc66; }
+    .sidebar-header .sub { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 3px; }
+
+    .back-link {
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 14px; font-size: 0.8rem;
+      color: rgba(255,255,255,0.4); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #00cc66; }
+
+    .doc-list { list-style: none; padding: 4px 0; }
+    .doc-list li { margin: 0; }
+    .doc-link {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 14px; font-size: 0.78rem;
+      color: rgba(255,255,255,0.45); text-decoration: none;
+      transition: all 0.15s; border-left: 2px solid transparent;
+    }
+    .doc-link:hover { color: #e6edf3; background: rgba(255,255,255,0.03); }
+    .doc-link.active { color: #00cc66; border-left-color: #00cc66; background: rgba(0,204,102,0.06); }
+    .doc-link .icon { opacity: 0.5; flex-shrink: 0; }
+    .doc-link:hover .icon { opacity: 1; }
+    .section-label {
+      padding: 8px 14px 3px; font-size: 0.7rem;
+      color: rgba(255,255,255,0.2); text-transform: uppercase;
+      letter-spacing: 1px; font-weight: 500;
+    }
+
+    /* Main content */
+    .main { flex: 1; min-width: 0; padding: 28px 36px 80px; max-width: 960px; }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { padding: 14px 16px 60px; }
+      .mobile-header { display: flex !important; }
+    }
+    .mobile-header {
+      display: none; position: sticky; top: 0; z-index: 10;
+      background: rgba(10,15,26,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 10px 14px; align-items: center; gap: 8px;
+    }
+    .mobile-header .back { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; }
+    .mobile-header .title { font-size: 0.85rem; font-weight: 600; color: #00cc66; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .mobile-nav-btn {
+      margin-left: auto; background: none; border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5); padding: 4px 10px; border-radius: 4px;
+      cursor: pointer; font-size: 0.78rem; white-space: nowrap;
+    }
+
+    /* Markdown content */
+    .content { line-height: 1.8; color: #d4dce8; }
+    .content h1 { font-size: 1.5rem; font-weight: 700; color: #f0f6ff; margin: 2rem 0 1rem; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .content h2 { font-size: 1.2rem; font-weight: 600; color: #e6edf3; margin: 1.8rem 0 0.8rem; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .content h3 { font-size: 1.05rem; font-weight: 600; color: #d4dce8; margin: 1.4rem 0 0.6rem; }
+    .content h4 { font-size: 0.95rem; font-weight: 600; color: #c8d0dc; margin: 1rem 0 0.4rem; }
+    .content p { margin: 0.6rem 0; }
+    .content a { color: #60a5fa; text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+    .content strong { color: #f0f6ff; font-weight: 600; }
+    .content code { background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 3px; font-family: "SF Mono", "Fira Code", monospace; font-size: 0.85em; color: #67e8f9; }
+    .content pre { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 12px 16px; overflow-x: auto; margin: 0.8rem 0; }
+    .content pre code { background: none; padding: 0; color: #e6edf3; }
+    .content blockquote { border-left: 3px solid #00cc66; padding: 8px 16px; margin: 0.8rem 0; background: rgba(0,204,102,0.04); border-radius: 0 4px 4px 0; }
+    .content blockquote p { margin: 0; color: rgba(255,255,255,0.6); }
+    .content hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 2rem 0; }
+    .content ul, .content ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .content li { margin: 0.3rem 0; }
+    .content li::marker { color: rgba(255,255,255,0.3); }
+    .content table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+    .content th { padding: 8px 12px; text-align: left; font-size: 0.78rem; color: rgba(255,255,255,0.4); font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); text-transform: uppercase; letter-spacing: 0.3px; background: rgba(255,255,255,0.02); }
+    .content td { padding: 7px 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .content tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; gap: 16px; }
+    .loading-spinner { width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.06); border-top-color: #00cc66; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-size: 0.85rem; color: rgba(255,255,255,0.3); }
+    .error-state { text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3); }
+    .error-state .msg { font-size: 0.9rem; margin-top: 8px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!-- Desktop Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>🏛️ 十五五投资框架</h1>
+      <div class="sub">2026-2030 · 8大投资主线</div>
+    </div>
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      股票池
+    </a>
+
+    <div class="section-label">核心文档</div>
+    <ul class="doc-list" id="core-docs"></ul>
+    <div class="section-label">8大投资方向</div>
+    <ul class="doc-list" id="direction-docs"></ul>
+    <div class="section-label">详细分析</div>
+    <ul class="doc-list" id="detail-docs"></ul>
+  </aside>
+
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <a href="index.html" class="back">←</a>
+    <span class="title" id="mobile-title">十五五投资框架</span>
+    <button class="mobile-nav-btn" onclick="toggleMobileNav()">导航</button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">加载中...</div>
+    </div>
+    <div id="error-state" class="error-state" style="display:none;">
+      <div style="font-size:2rem;margin-bottom:8px;">⚠️</div>
+      <div class="msg" id="error-msg">加载失败</div>
+    </div>
+    <div id="content" class="content" style="display:none;"></div>
+  </main>
+</div>
+
+<script>
+const DOCS = {
+  core: [
+    { file: 'index.md', label: '📋 框架总纲', desc: '方法论 · 8主线一览 · 使用指引' },
+    { file: '月度轮动.md', label: '📅 月度轮动', desc: '每月板块/产业推荐与配置' },
+    { file: '风险监测.md', label: '⚠️ 风险监测', desc: '宏观/市场/方向性风险' },
+    { file: '事件日历.md', label: '📌 事件日历', desc: '政策/技术/事件时间轴' },
+  ],
+  directions: [
+    { file: '1-科技自主可控.md', label: '🖥️ 科技自主可控', desc: '半导体·工业母机·先进材料' },
+    { file: '2-新兴产业未来产业.md', label: '🚀 新兴产业未来产业', desc: '机器人·低空·量子·6G' },
+    { file: '3-AI数字中国.md', label: '🤖 AI数字中国', desc: '算力·大模型·数据要素' },
+    { file: '4-新型能源体系.md', label: '⚡ 新型能源体系', desc: '风光核电·储能·氢能' },
+    { file: '5-提振消费.md', label: '🛍️ 提振消费', desc: '服务·大宗·新型消费' },
+    { file: '6-基础设施.md', label: '🏗️ 基础设施', desc: '交通·卫星·新基建·水网' },
+    { file: '7-国家安全.md', label: '🛡️ 国家安全', desc: '军工·网安·粮食能源安全' },
+    { file: '8-资本市场改革.md', label: '🏦 资本市场改革', desc: '券商·科技金融·耐心资本' },
+  ],
+  details: [
+    { file: '2026年7月投资分析.md', label: '📊 7月投资分析', desc: '7月布局·ETF/个股·操作时间线' },
+    { file: 'hermes-framework.md', label: '📚 Hermes框架', desc: '宏观定位·选股方法论·仓位管理' },
+    { file: 'hermes-轮动日历.md', label: '🗓️ Hermes轮动日历', desc: '2026-2030逐月炒作日历' },
+  ],
+};
+
+let currentFile = '';
+
+function buildSidebar() {
+  const containerIds = ['core-docs', 'direction-docs', 'detail-docs'];
+  const sections = [DOCS.core, DOCS.directions, DOCS.details];
+
+  containerIds.forEach((id, si) => {
+    const ul = document.getElementById(id);
+    ul.innerHTML = sections[si].map(function(doc) {
+      const isActive = doc.file === currentFile;
+      return '<li><a class="doc-link ' + (isActive ? 'active' : '') + '" href="?file=' + encodeURIComponent(doc.file) + '" title="' + doc.desc + '">' +
+        '<span class="icon">' + doc.label.charAt(0) + '</span>' +
+        doc.label.slice(2) +
+        '</a></li>';
+    }).join('');
+  });
+}
+
+function updateMobileTitle(file) {
+  const allDocs = [...DOCS.core, ...DOCS.directions, ...DOCS.details];
+  const found = allDocs.find(function(d) { return d.file === file; });
+  document.getElementById('mobile-title').textContent = found ? found.label.replace(/^.{1,2}\s/, '') : '十五五投资框架';
+}
+
+async function loadFile(file) {
+  currentFile = file || 'index.md';
+  const loadingEl = document.getElementById('loading');
+  const errorEl = document.getElementById('error-state');
+  const contentEl = document.getElementById('content');
+
+  loadingEl.style.display = 'flex';
+  errorEl.style.display = 'none';
+  contentEl.style.display = 'none';
+
+  try {
+    const resp = await fetch('十五五投资框架/' + currentFile + '?' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const md = await resp.text();
+    contentEl.innerHTML = marked.parse(md, { breaks: true, gfm: true });
+    contentEl.style.display = 'block';
+    loadingEl.style.display = 'none';
+    updateMobileTitle(currentFile);
+    buildSidebar();
+  } catch (e) {
+    loadingEl.style.display = 'none';
+    errorEl.style.display = 'block';
+    document.getElementById('error-msg').textContent = '加载失败: ' + e.message;
+  }
+}
+
+function toggleMobileNav() {
+  const sidebar = document.getElementById('sidebar');
+  const isHidden = sidebar.style.display === 'none' || !sidebar.style.display;
+  if (window.innerWidth <= 768) {
+    sidebar.style.display = isHidden ? 'block' : 'none';
+    if (isHidden) {
+      sidebar.style.position = 'fixed';
+      sidebar.style.top = '0';
+      sidebar.style.left = '0';
+      sidebar.style.width = '80%';
+      sidebar.style.maxWidth = '300px';
+      sidebar.style.zIndex = '100';
+      sidebar.style.height = '100vh';
+    }
+  }
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', function(e) {
+  if (window.innerWidth <= 768) {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.style.display === 'block' && !sidebar.contains(e.target) && !e.target.closest('.mobile-nav-btn')) {
+      sidebar.style.display = 'none';
+    }
+  }
+});
+
+// Get file from URL params
+const params = new URLSearchParams(window.location.search);
+const fileParam = params.get('file') || 'index.md';
+loadFile(fileParam);
+</script>
+</body>
+</html>
