@@ -20,17 +20,17 @@ K线阴阳形态匹配与筛选工具，支持预设卦象形态。
 CLI 用法
 
   # 指定形态搜索（详细模式）
-  python indicators/kline_pattern.py 101000 --code sz000970
+  python 指标/kline_pattern.py 101000 --code sz000970
 
   # 扫描全部预设卦象（摘要模式）
-  python indicators/kline_pattern.py --code sz000970
+  python 指标/kline_pattern.py --code sz000970
 
   # 周线 / 月线
-  python indicators/kline_pattern.py --code sz000970 --period weekly
-  python indicators/kline_pattern.py --code sz000970 --period monthly
+  python 指标/kline_pattern.py --code sz000970 --period weekly
+  python 指标/kline_pattern.py --code sz000970 --period monthly
 
   # 自定义回看天数
-  python indicators/kline_pattern.py --code sz000970 --lookback 20 --count 50
+  python 指标/kline_pattern.py --code sz000970 --lookback 20 --count 50
 
 参数说明：
   pattern             形态二进制串（可选，省略则扫描全部卦象）
@@ -40,7 +40,7 @@ CLI 用法
   --lookback          回看根数（默认30）
 
 编程导入：
-  from indicators.kline_pattern import (
+  from 指标.kline_pattern import (
       match_pattern,           # 单形态匹配
       multi_pattern_match,     # 多形态匹配
       pattern_to_string,       # K线→二进制字符串

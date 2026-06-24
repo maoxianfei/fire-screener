@@ -1,0 +1,2573 @@
+{
+  "source": "同花顺云同步",
+  "updated": "2026-06-23",
+  "groups": {
+    "etf": [
+      {
+        "code": "560860",
+        "name": "工业有色ETF万家",
+        "market": "sh"
+      },
+      {
+        "code": "159755",
+        "name": "电池ETF广发",
+        "market": "sz"
+      },
+      {
+        "code": "159870",
+        "name": "化工ETF鹏华",
+        "market": "sz"
+      },
+      {
+        "code": "159852",
+        "name": "软件ETF嘉实",
+        "market": "sz"
+      },
+      {
+        "code": "159287",
+        "name": "创业板综ETF博时",
+        "market": "sz"
+      },
+      {
+        "code": "159530",
+        "name": "机器人ETF易方达",
+        "market": "sz"
+      },
+      {
+        "code": "512690",
+        "name": "酒ETF鹏华",
+        "market": "sh"
+      },
+      {
+        "code": "588780",
+        "name": "科创芯片设计ETF国联安",
+        "market": "sh"
+      },
+      {
+        "code": "513180",
+        "name": "恒生科技ETF华夏",
+        "market": "sh"
+      },
+      {
+        "code": "159732",
+        "name": "消费电子ETF华夏",
+        "market": "sz"
+      },
+      {
+        "code": "159611",
+        "name": "电力ETF广发",
+        "market": "sz"
+      },
+      {
+        "code": "159327",
+        "name": "半导体设备ETF万家",
+        "market": "sz"
+      },
+      {
+        "code": "513050",
+        "name": "中概互联网ETF易方达",
+        "market": "sh"
+      },
+      {
+        "code": "159792",
+        "name": "港股通互联网ETF富国",
+        "market": "sz"
+      },
+      {
+        "code": "159941",
+        "name": "纳指ETF广发",
+        "market": "sz"
+      },
+      {
+        "code": "159262",
+        "name": "港股通科技ETF广发",
+        "market": "sz"
+      },
+      {
+        "code": "512200",
+        "name": "房地产ETF南方",
+        "market": "sh"
+      },
+      {
+        "code": "516670",
+        "name": "畜牧养殖ETF招商",
+        "market": "sh"
+      },
+      {
+        "code": "159825",
+        "name": "农业ETF富国",
+        "market": "sz"
+      },
+      {
+        "code": "159819",
+        "name": "人工智能ETF易方达",
+        "market": "sz"
+      }
+    ],
+    "615周线信号火地水雷": [
+      {
+        "code": "000833",
+        "name": "粤桂股份",
+        "market": "sz"
+      },
+      {
+        "code": "000949",
+        "name": "新乡化纤",
+        "market": "sz"
+      },
+      {
+        "code": "000953",
+        "name": "中哲精化",
+        "market": "sz"
+      },
+      {
+        "code": "002124",
+        "name": "天邦食品",
+        "market": "sz"
+      },
+      {
+        "code": "002293",
+        "name": "罗莱生活",
+        "market": "sz"
+      },
+      {
+        "code": "003026",
+        "name": "中晶科技",
+        "market": "sz"
+      },
+      {
+        "code": "300264",
+        "name": "佳创视讯",
+        "market": "sz"
+      },
+      {
+        "code": "300267",
+        "name": "尔康制药",
+        "market": "sz"
+      },
+      {
+        "code": "300733",
+        "name": "西菱动力",
+        "market": "sz"
+      },
+      {
+        "code": "300866",
+        "name": "安克创新",
+        "market": "sz"
+      },
+      {
+        "code": "300947",
+        "name": "德必集团",
+        "market": "sz"
+      },
+      {
+        "code": "301059",
+        "name": "金三江",
+        "market": "sz"
+      },
+      {
+        "code": "301149",
+        "name": "隆华新材",
+        "market": "sz"
+      },
+      {
+        "code": "301150",
+        "name": "中一科技",
+        "market": "sz"
+      },
+      {
+        "code": "301276",
+        "name": "嘉曼服饰",
+        "market": "sz"
+      },
+      {
+        "code": "600050",
+        "name": "中国联通",
+        "market": "sh"
+      },
+      {
+        "code": "600694",
+        "name": "大商股份",
+        "market": "sh"
+      },
+      {
+        "code": "600935",
+        "name": "华塑股份",
+        "market": "sh"
+      },
+      {
+        "code": "600955",
+        "name": "维远股份",
+        "market": "sh"
+      },
+      {
+        "code": "600989",
+        "name": "宝丰能源",
+        "market": "sh"
+      },
+      {
+        "code": "601216",
+        "name": "君正集团",
+        "market": "sh"
+      },
+      {
+        "code": "601665",
+        "name": "齐鲁银行",
+        "market": "sh"
+      },
+      {
+        "code": "601766",
+        "name": "中国中车",
+        "market": "sh"
+      },
+      {
+        "code": "603217",
+        "name": "元利科技",
+        "market": "sh"
+      },
+      {
+        "code": "603233",
+        "name": "大参林",
+        "market": "sh"
+      },
+      {
+        "code": "603317",
+        "name": "天味食品",
+        "market": "sh"
+      },
+      {
+        "code": "603363",
+        "name": "傲农生物",
+        "market": "sh"
+      },
+      {
+        "code": "603507",
+        "name": "振江股份",
+        "market": "sh"
+      },
+      {
+        "code": "603711",
+        "name": "香飘飘",
+        "market": "sh"
+      },
+      {
+        "code": "605296",
+        "name": "神农集团",
+        "market": "sh"
+      },
+      {
+        "code": "688209",
+        "name": "英集芯",
+        "market": "sh"
+      },
+      {
+        "code": "688275",
+        "name": "万润新能",
+        "market": "sh"
+      },
+      {
+        "code": "688278",
+        "name": "特宝生物",
+        "market": "sh"
+      },
+      {
+        "code": "688376",
+        "name": "美埃科技",
+        "market": "sh"
+      },
+      {
+        "code": "688530",
+        "name": "欧莱新材",
+        "market": "sh"
+      },
+      {
+        "code": "688720",
+        "name": "DR艾森股",
+        "market": "sh"
+      }
+    ],
+    "617吸筹": [
+      {
+        "code": "003000",
+        "name": "劲仔食品",
+        "market": "sz",
+        "VAR5": 72.66,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "002596",
+        "name": "海南瑞泽",
+        "market": "sz",
+        "VAR5": 72.0,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600153",
+        "name": "建发股份",
+        "market": "sh",
+        "VAR5": 46.27,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "300281",
+        "name": "金明精机",
+        "market": "sz",
+        "VAR5": 35.38,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600027",
+        "name": "华电国际",
+        "market": "sh",
+        "VAR5": 33.29,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "002563",
+        "name": "森马服饰",
+        "market": "sz",
+        "VAR5": 31.32,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "601728",
+        "name": "中国电信",
+        "market": "sh",
+        "VAR5": 30.54,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "603711",
+        "name": "香飘飘",
+        "market": "sh",
+        "VAR5": 24.86,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600606",
+        "name": "绿地控股",
+        "market": "sh",
+        "VAR5": 24.67,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600236",
+        "name": "桂冠电力",
+        "market": "sh",
+        "VAR5": 17.92,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "603221",
+        "name": "爱丽家居",
+        "market": "sh",
+        "VAR5": 16.61,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "603095",
+        "name": "越剑智能",
+        "market": "sh",
+        "VAR5": 15.28,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "002235",
+        "name": "安妮股份",
+        "market": "sz",
+        "VAR5": 13.85,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "000899",
+        "name": "赣能股份",
+        "market": "sz",
+        "VAR5": 13.42,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "603586",
+        "name": "金麒麟",
+        "market": "sh",
+        "VAR5": 12.55,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600674",
+        "name": "川投能源",
+        "market": "sh",
+        "VAR5": 11.6,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "000402",
+        "name": "金 融 街",
+        "market": "sz",
+        "VAR5": 11.5,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "688800",
+        "name": "DR瑞可达",
+        "market": "sh",
+        "VAR5": 10.41,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "300854",
+        "name": "中兰环保",
+        "market": "sz",
+        "VAR5": 9.8,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600971",
+        "name": "恒源煤电",
+        "market": "sh",
+        "VAR5": 8.06,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600758",
+        "name": "辽宁能源",
+        "market": "sh",
+        "VAR5": 7.82,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "600783",
+        "name": "鲁信创投",
+        "market": "sh",
+        "VAR5": 7.55,
+        "信号日": "2026-06-17"
+      },
+      {
+        "code": "002081",
+        "name": "金 螳 螂",
+        "market": "sz",
+        "VAR5": 5.69,
+        "信号日": "2026-06-17"
+      }
+    ],
+    "长鑫产业链": [
+      {
+        "code": "603078",
+        "name": "江化微",
+        "market": "sh"
+      },
+      {
+        "code": "688019",
+        "name": "安集科技",
+        "market": "sh"
+      },
+      {
+        "code": "300054",
+        "name": "鼎龙股份",
+        "market": "sz"
+      },
+      {
+        "code": "300346",
+        "name": "南大光电",
+        "market": "sz"
+      },
+      {
+        "code": "300576",
+        "name": "容大感光",
+        "market": "sz"
+      },
+      {
+        "code": "688126",
+        "name": "沪硅产业",
+        "market": "sh"
+      },
+      {
+        "code": "605358",
+        "name": "立昂微",
+        "market": "sh"
+      },
+      {
+        "code": "002129",
+        "name": "TCL中环",
+        "market": "sz"
+      },
+      {
+        "code": "688268",
+        "name": "华特气体",
+        "market": "sh"
+      },
+      {
+        "code": "688106",
+        "name": "金宏气体",
+        "market": "sh"
+      },
+      {
+        "code": "688548",
+        "name": "广钢气体",
+        "market": "sh"
+      },
+      {
+        "code": "300666",
+        "name": "江丰电子",
+        "market": "sz"
+      },
+      {
+        "code": "600206",
+        "name": "有研新材",
+        "market": "sh"
+      },
+      {
+        "code": "300706",
+        "name": "阿石创",
+        "market": "sz"
+      },
+      {
+        "code": "002371",
+        "name": "北方华创",
+        "market": "sz"
+      },
+      {
+        "code": "688012",
+        "name": "中微公司",
+        "market": "sh"
+      },
+      {
+        "code": "688072",
+        "name": "拓荆科技",
+        "market": "sh"
+      },
+      {
+        "code": "688082",
+        "name": "盛美上海",
+        "market": "sh"
+      },
+      {
+        "code": "300604",
+        "name": "长川科技",
+        "market": "sz"
+      },
+      {
+        "code": "688627",
+        "name": "精智达",
+        "market": "sh"
+      },
+      {
+        "code": "600584",
+        "name": "长电科技",
+        "market": "sh"
+      },
+      {
+        "code": "002156",
+        "name": "通富微电",
+        "market": "sz"
+      },
+      {
+        "code": "002185",
+        "name": "华天科技",
+        "market": "sz"
+      },
+      {
+        "code": "000021",
+        "name": "深科技",
+        "market": "sz"
+      },
+      {
+        "code": "301308",
+        "name": "江波龙",
+        "market": "sz"
+      },
+      {
+        "code": "300042",
+        "name": "朗科科技",
+        "market": "sz"
+      },
+      {
+        "code": "000977",
+        "name": "浪潮信息",
+        "market": "sz"
+      },
+      {
+        "code": "603019",
+        "name": "中科曙光",
+        "market": "sh"
+      },
+      {
+        "code": "000938",
+        "name": "紫光股份",
+        "market": "sz"
+      }
+    ],
+    "科创周线吸筹": [
+      {
+        "code": "688606",
+        "name": "奥泰生物",
+        "market": "sh",
+        "close": 44.42,
+        "var5": 580.6278415436008,
+        "signal_date": "2026-06-18",
+        "month_signals": 11
+      },
+      {
+        "code": "688136",
+        "name": "科兴制药",
+        "market": "sh",
+        "close": 18.29,
+        "var5": 516.2392390074515,
+        "signal_date": "2026-06-18",
+        "month_signals": 16
+      },
+      {
+        "code": "688373",
+        "name": "盟科药业",
+        "market": "sh",
+        "close": 4.63,
+        "var5": 475.11189620261007,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688137",
+        "name": "近岸蛋白",
+        "market": "sh",
+        "close": 35.98,
+        "var5": 403.64231717986064,
+        "signal_date": "2026-06-18",
+        "month_signals": 11
+      },
+      {
+        "code": "688197",
+        "name": "首药控股",
+        "market": "sh",
+        "close": 32.38,
+        "var5": 402.5533436003311,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688336",
+        "name": "DR三生国",
+        "market": "sh",
+        "close": 40.15,
+        "var5": 400.6791773692215,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688217",
+        "name": "睿昂基因",
+        "market": "sh",
+        "close": 22.33,
+        "var5": 339.0520624474093,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688443",
+        "name": "智翔金泰",
+        "market": "sh",
+        "close": 21.85,
+        "var5": 294.95808207927655,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688575",
+        "name": "亚辉龙",
+        "market": "sh",
+        "close": 9.21,
+        "var5": 288.1148780243553,
+        "signal_date": "2026-06-18",
+        "month_signals": 15
+      },
+      {
+        "code": "688089",
+        "name": "嘉必优",
+        "market": "sh",
+        "close": 11.37,
+        "var5": 246.87758941064948,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688366",
+        "name": "昊海生科",
+        "market": "sh",
+        "close": 30.15,
+        "var5": 229.82093743703948,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688513",
+        "name": "苑东生物",
+        "market": "sh",
+        "close": 45.01,
+        "var5": 227.50777758793748,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688701",
+        "name": "卓锦股份",
+        "market": "sh",
+        "close": 7.86,
+        "var5": 224.73021570220595,
+        "signal_date": "2026-06-18",
+        "month_signals": 6
+      },
+      {
+        "code": "688247",
+        "name": "宣泰医药",
+        "market": "sh",
+        "close": 7.58,
+        "var5": 203.28351959417887,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688075",
+        "name": "安旭生物",
+        "market": "sh",
+        "close": 30.16,
+        "var5": 202.38561938668823,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688553",
+        "name": "汇宇制药",
+        "market": "sh",
+        "close": 10.88,
+        "var5": 185.99584819749185,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688565",
+        "name": "力源科技",
+        "market": "sh",
+        "close": 9.87,
+        "var5": 181.03505231078574,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688161",
+        "name": "威高骨科",
+        "market": "sh",
+        "close": 21.84,
+        "var5": 175.52000000869876,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688616",
+        "name": "西力科技",
+        "market": "sh",
+        "close": 10.73,
+        "var5": 171.01283874394292,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688393",
+        "name": "安必平",
+        "market": "sh",
+        "close": 19.3,
+        "var5": 159.4003558247317,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688670",
+        "name": "金迪克",
+        "market": "sh",
+        "close": 14.28,
+        "var5": 158.98560024843385,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688265",
+        "name": "南模生物",
+        "market": "sh",
+        "close": 31.85,
+        "var5": 156.1592858185881,
+        "signal_date": "2026-06-18",
+        "month_signals": 16
+      },
+      {
+        "code": "688276",
+        "name": "百克生物",
+        "market": "sh",
+        "close": 14.23,
+        "var5": 154.06393182699975,
+        "signal_date": "2026-06-18",
+        "month_signals": 17
+      },
+      {
+        "code": "688015",
+        "name": "交控科技",
+        "market": "sh",
+        "close": 16.68,
+        "var5": 152.05886199073385,
+        "signal_date": "2026-06-18",
+        "month_signals": 16
+      },
+      {
+        "code": "688296",
+        "name": "和达科技",
+        "market": "sh",
+        "close": 12.76,
+        "var5": 147.5758378299786,
+        "signal_date": "2026-06-18",
+        "month_signals": 5
+      },
+      {
+        "code": "688695",
+        "name": "中创股份",
+        "market": "sh",
+        "close": 19.98,
+        "var5": 138.75993471516784,
+        "signal_date": "2026-06-18",
+        "month_signals": 9
+      },
+      {
+        "code": "688528",
+        "name": "秦川物联",
+        "market": "sh",
+        "close": 10.21,
+        "var5": 137.71652991571364,
+        "signal_date": "2026-06-18",
+        "month_signals": 4
+      },
+      {
+        "code": "688389",
+        "name": "普门科技",
+        "market": "sh",
+        "close": 10.49,
+        "var5": 135.39801330777607,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688681",
+        "name": "科汇股份",
+        "market": "sh",
+        "close": 14.97,
+        "var5": 127.34628473766361,
+        "signal_date": "2026-06-18",
+        "month_signals": 13
+      },
+      {
+        "code": "688687",
+        "name": "凯因科技",
+        "market": "sh",
+        "close": 16.18,
+        "var5": 122.9802246687052,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688067",
+        "name": "爱威科技",
+        "market": "sh",
+        "close": 21.59,
+        "var5": 116.40557486003858,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688468",
+        "name": "科美诊断",
+        "market": "sh",
+        "close": 5.9,
+        "var5": 112.08105218434898,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688060",
+        "name": "云涌科技",
+        "market": "sh",
+        "close": 35.46,
+        "var5": 108.2851229920482,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688739",
+        "name": "成大生物",
+        "market": "sh",
+        "close": 19.98,
+        "var5": 94.90186069907527,
+        "signal_date": "2026-06-18",
+        "month_signals": 15
+      },
+      {
+        "code": "688349",
+        "name": "DR三一重",
+        "market": "sh",
+        "close": 14.12,
+        "var5": 89.53242965072386,
+        "signal_date": "2026-06-18",
+        "month_signals": 14
+      },
+      {
+        "code": "688765",
+        "name": "禾元生物",
+        "market": "sh",
+        "close": 46.19,
+        "var5": 88.81603792937419,
+        "signal_date": "2026-06-18",
+        "month_signals": 8
+      },
+      {
+        "code": "688426",
+        "name": "康为世纪",
+        "market": "sh",
+        "close": 16.32,
+        "var5": 84.3174429824054,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688101",
+        "name": "三达膜",
+        "market": "sh",
+        "close": 17.09,
+        "var5": 77.5778541962309,
+        "signal_date": "2026-06-18",
+        "month_signals": 1
+      },
+      {
+        "code": "688021",
+        "name": "奥福科技",
+        "market": "sh",
+        "close": 21.42,
+        "var5": 70.81001810577462,
+        "signal_date": "2026-06-18",
+        "month_signals": 6
+      },
+      {
+        "code": "688533",
+        "name": "上声电子",
+        "market": "sh",
+        "close": 22.9,
+        "var5": 67.84039533086029,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688658",
+        "name": "悦康药业",
+        "market": "sh",
+        "close": 13.18,
+        "var5": 63.411987935727815,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688095",
+        "name": "福昕软件",
+        "market": "sh",
+        "close": 66.49,
+        "var5": 61.493332733124774,
+        "signal_date": "2026-06-18",
+        "month_signals": 8
+      },
+      {
+        "code": "688613",
+        "name": "奥精医疗",
+        "market": "sh",
+        "close": 15.38,
+        "var5": 58.837295882792404,
+        "signal_date": "2026-06-18",
+        "month_signals": 16
+      },
+      {
+        "code": "688073",
+        "name": "毕得医药",
+        "market": "sh",
+        "close": 45.38,
+        "var5": 56.760824483670916,
+        "signal_date": "2026-06-18",
+        "month_signals": 10
+      },
+      {
+        "code": "688169",
+        "name": "石头科技",
+        "market": "sh",
+        "close": 97.27,
+        "var5": 55.14510423403626,
+        "signal_date": "2026-06-18",
+        "month_signals": 5
+      },
+      {
+        "code": "688029",
+        "name": "南微医学",
+        "market": "sh",
+        "close": 71.08,
+        "var5": 54.74122910261727,
+        "signal_date": "2026-06-18",
+        "month_signals": 3
+      },
+      {
+        "code": "688192",
+        "name": "迪哲医药",
+        "market": "sh",
+        "close": 37.96,
+        "var5": 48.78308874169699,
+        "signal_date": "2026-06-18",
+        "month_signals": 9
+      },
+      {
+        "code": "688091",
+        "name": "上海谊众",
+        "market": "sh",
+        "close": 40.81,
+        "var5": 43.64288707090064,
+        "signal_date": "2026-06-18",
+        "month_signals": 11
+      },
+      {
+        "code": "688793",
+        "name": "倍轻松",
+        "market": "sh",
+        "close": 16.86,
+        "var5": 39.304828445849765,
+        "signal_date": "2026-06-18",
+        "month_signals": 12
+      },
+      {
+        "code": "688520",
+        "name": "神州细胞",
+        "market": "sh",
+        "close": 34.16,
+        "var5": 34.67435570761921,
+        "signal_date": "2026-06-18",
+        "month_signals": 9
+      },
+      {
+        "code": "688282",
+        "name": "理工导航",
+        "market": "sh",
+        "close": 65.51,
+        "var5": 31.18190549765275,
+        "signal_date": "2026-06-18",
+        "month_signals": 7
+      },
+      {
+        "code": "688121",
+        "name": "卓然股份",
+        "market": "sh",
+        "close": 6.48,
+        "var5": 26.554282451494622,
+        "signal_date": "2026-04-30",
+        "month_signals": 0
+      },
+      {
+        "code": "688267",
+        "name": "DR中触媒",
+        "market": "sh",
+        "close": 23.26,
+        "var5": 25.905282581902256,
+        "signal_date": "2026-06-18",
+        "month_signals": 2
+      },
+      {
+        "code": "688271",
+        "name": "联影医疗",
+        "market": "sh",
+        "close": 103.48,
+        "var5": 23.7781260085702,
+        "signal_date": "2026-06-18",
+        "month_signals": 1
+      },
+      {
+        "code": "688078",
+        "name": "龙软科技",
+        "market": "sh",
+        "close": 21.55,
+        "var5": 21.95261380849164,
+        "signal_date": "2026-06-18",
+        "month_signals": 9
+      },
+      {
+        "code": "688317",
+        "name": "之江生物",
+        "market": "sh",
+        "close": 16.37,
+        "var5": 19.19361368928464,
+        "signal_date": "2026-06-18",
+        "month_signals": 11
+      },
+      {
+        "code": "688365",
+        "name": "光云科技",
+        "market": "sh",
+        "close": 18.22,
+        "var5": 15.715335713206143,
+        "signal_date": "2026-06-18",
+        "month_signals": 4
+      },
+      {
+        "code": "688435",
+        "name": "英方软件",
+        "market": "sh",
+        "close": 35.1,
+        "var5": 13.044098335915356,
+        "signal_date": "2026-06-18",
+        "month_signals": 5
+      },
+      {
+        "code": "688581",
+        "name": "安杰思",
+        "market": "sh",
+        "close": 52.82,
+        "var5": 12.283965259530799,
+        "signal_date": "2026-06-18",
+        "month_signals": 4
+      },
+      {
+        "code": "688597",
+        "name": "煜邦电力",
+        "market": "sh",
+        "close": 7.55,
+        "var5": 9.14218176912273,
+        "signal_date": "2026-06-18",
+        "month_signals": 6
+      },
+      {
+        "code": "688570",
+        "name": "天玛智控",
+        "market": "sh",
+        "close": 14.99,
+        "var5": 8.029074559820925,
+        "signal_date": "2026-06-18",
+        "month_signals": 8
+      }
+    ],
+    "科创月线吸筹": [
+      {
+        "code": "688429",
+        "name": "时创能源",
+        "market": "sh",
+        "close": 10.58,
+        "var5": 136.2532101009395,
+        "signal_date": "2026-06-18",
+        "industry": "光伏设备"
+      },
+      {
+        "code": "688032",
+        "name": "禾迈股份",
+        "market": "sh",
+        "close": 87.68,
+        "var5": 116.76576742883262,
+        "signal_date": "2026-06-18",
+        "industry": "光伏设备"
+      },
+      {
+        "code": "688793",
+        "name": "倍轻松",
+        "market": "sh",
+        "close": 16.86,
+        "var5": 93.96620695280853,
+        "signal_date": "2026-06-18",
+        "industry": "小家电"
+      },
+      {
+        "code": "688349",
+        "name": "DR三一重",
+        "market": "sh",
+        "close": 14.12,
+        "var5": 74.42524796623776,
+        "signal_date": "2026-06-18",
+        "industry": "风电设备"
+      },
+      {
+        "code": "688639",
+        "name": "华恒生物",
+        "market": "sh",
+        "close": 20.87,
+        "var5": 61.96659968418613,
+        "signal_date": "2026-06-18",
+        "industry": "化学制品"
+      },
+      {
+        "code": "688695",
+        "name": "中创股份",
+        "market": "sh",
+        "close": 19.98,
+        "var5": 55.050707229216826,
+        "signal_date": "2026-06-18",
+        "industry": "软件开发"
+      },
+      {
+        "code": "688169",
+        "name": "石头科技",
+        "market": "sh",
+        "close": 97.27,
+        "var5": 54.64032664291253,
+        "signal_date": "2026-06-18",
+        "industry": "小家电"
+      },
+      {
+        "code": "688789",
+        "name": "宏华数科",
+        "market": "sh",
+        "close": 53.34,
+        "var5": 43.42479600738859,
+        "signal_date": "2026-06-18",
+        "industry": "专用设备"
+      },
+      {
+        "code": "688569",
+        "name": "铁科轨道",
+        "market": "sh",
+        "close": 17.71,
+        "var5": 37.1905209588424,
+        "signal_date": "2026-06-18",
+        "industry": "轨交设备Ⅱ"
+      },
+      {
+        "code": "688157",
+        "name": "松井股份",
+        "market": "sh",
+        "close": 28.69,
+        "var5": 34.70321859729462,
+        "signal_date": "2026-06-18",
+        "industry": "化学制品"
+      },
+      {
+        "code": "688408",
+        "name": "中信博",
+        "market": "sh",
+        "close": 30.18,
+        "var5": 34.35379228928316,
+        "signal_date": "2026-06-18",
+        "industry": "光伏设备"
+      },
+      {
+        "code": "688121",
+        "name": "卓然股份",
+        "market": "sh",
+        "close": 6.48,
+        "var5": 30.341035599214848,
+        "signal_date": "2026-04-30",
+        "industry": "专用设备"
+      },
+      {
+        "code": "688244",
+        "name": "永信至诚",
+        "market": "sh",
+        "close": 15.67,
+        "var5": 30.214008746765444,
+        "signal_date": "2026-06-18",
+        "industry": "软件开发"
+      },
+      {
+        "code": "688318",
+        "name": "财富趋势",
+        "market": "sh",
+        "close": 72.99,
+        "var5": 19.820108213092983,
+        "signal_date": "2026-06-18",
+        "industry": "软件开发"
+      },
+      {
+        "code": "688152",
+        "name": "麒麟信安",
+        "market": "sh",
+        "close": 30.83,
+        "var5": 19.228838663207362,
+        "signal_date": "2026-06-18",
+        "industry": "软件开发"
+      },
+      {
+        "code": "688522",
+        "name": "纳睿雷达",
+        "market": "sh",
+        "close": 20.41,
+        "var5": 17.956491079368643,
+        "signal_date": "2026-06-18",
+        "industry": "军工电子Ⅱ"
+      },
+      {
+        "code": "688281",
+        "name": "华秦科技",
+        "market": "sh",
+        "close": 53.35,
+        "var5": 12.883428558267655,
+        "signal_date": "2026-06-18",
+        "industry": "航空装备Ⅱ"
+      },
+      {
+        "code": "688348",
+        "name": "昱能科技",
+        "market": "sh",
+        "close": 36.45,
+        "var5": 6.381673841698304,
+        "signal_date": "2026-06-18",
+        "industry": "光伏设备"
+      }
+    ],
+    "0616-0622周线1010001": [
+      {
+        "code": "000591",
+        "name": "太阳能",
+        "market": "sz",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000601",
+        "name": "韶能股份",
+        "market": "sz",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000755",
+        "name": "山西高速",
+        "market": "sz",
+        "sector": "铁路公路",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000993",
+        "name": "闽东电力",
+        "market": "sz",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000995",
+        "name": "皇台酒业",
+        "market": "sz",
+        "sector": "白酒",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "001289",
+        "name": "龙源电力",
+        "market": "sz",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002348",
+        "name": "高乐股份",
+        "market": "sz",
+        "sector": "文娱用品",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002406",
+        "name": "远东传动",
+        "market": "sz",
+        "sector": "汽车零部件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300317",
+        "name": "珈伟新能",
+        "market": "sz",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301233",
+        "name": "盛帮股份",
+        "market": "sz",
+        "sector": "汽车零部件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600011",
+        "name": "华能国际",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600098",
+        "name": "广州发展",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600197",
+        "name": "伊力特",
+        "market": "sh",
+        "sector": "白酒",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600329",
+        "name": "达仁堂",
+        "market": "sh",
+        "sector": "中药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600508",
+        "name": "上海能源",
+        "market": "sh",
+        "sector": "煤炭开采",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600726",
+        "name": "华电能源",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600795",
+        "name": "国电电力",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600941",
+        "name": "中国移动",
+        "market": "sh",
+        "sector": "通信服务",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600993",
+        "name": "马应龙",
+        "market": "sh",
+        "sector": "中药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "601016",
+        "name": "节能风电",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "601857",
+        "name": "中国石油",
+        "market": "sh",
+        "sector": "炼化及贸易",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603227",
+        "name": "雪峰科技",
+        "market": "sh",
+        "sector": "化学制品",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "605177",
+        "name": "东亚药业",
+        "market": "sh",
+        "sector": "化学制药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688016",
+        "name": "心脉医疗",
+        "market": "sh",
+        "sector": "医疗器械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688121",
+        "name": "卓然股份",
+        "market": "sh",
+        "sector": "专用设备",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      }
+    ],
+    "0608-0614周线1010001": [
+      {
+        "code": "600050",
+        "name": "中国联通",
+        "market": "sh",
+        "sector": "通信",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600694",
+        "name": "大商股份",
+        "market": "sh",
+        "sector": "零售",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600935",
+        "name": "华塑股份",
+        "market": "sh",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600955",
+        "name": "维远股份",
+        "market": "sh",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600989",
+        "name": "宝丰能源",
+        "market": "sh",
+        "sector": "能源",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "601216",
+        "name": "君正集团",
+        "market": "sh",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "601665",
+        "name": "齐鲁银行",
+        "market": "sh",
+        "sector": "银行",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "601766",
+        "name": "中国中车",
+        "market": "sh",
+        "sector": "交运设备",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603217",
+        "name": "元利科技",
+        "market": "sh",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603233",
+        "name": "大参林",
+        "market": "sh",
+        "sector": "医药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603317",
+        "name": "天味食品",
+        "market": "sh",
+        "sector": "食品",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603363",
+        "name": "傲农生物",
+        "market": "sh",
+        "sector": "农业",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603507",
+        "name": "振江股份",
+        "market": "sh",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603711",
+        "name": "香飘飘",
+        "market": "sh",
+        "sector": "食品",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "605296",
+        "name": "神农集团",
+        "market": "sh",
+        "sector": "农业",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688209",
+        "name": "英集芯",
+        "market": "sh",
+        "sector": "半导体",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688275",
+        "name": "万润新能",
+        "market": "sh",
+        "sector": "新能源",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688278",
+        "name": "特宝生物",
+        "market": "sh",
+        "sector": "医药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688376",
+        "name": "美埃科技",
+        "market": "sh",
+        "sector": "环保",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688530",
+        "name": "欧莱新材",
+        "market": "sh",
+        "sector": "新材料",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688720",
+        "name": "艾森股份",
+        "market": "sh",
+        "sector": "半导体",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000833",
+        "name": "粤桂股份",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000949",
+        "name": "新乡化纤",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000953",
+        "name": "中哲精化",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002124",
+        "name": "天邦食品",
+        "market": "sz",
+        "sector": "农业",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002293",
+        "name": "罗莱生活",
+        "market": "sz",
+        "sector": "家纺",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "003026",
+        "name": "中晶科技",
+        "market": "sz",
+        "sector": "半导体",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300264",
+        "name": "佳创视讯",
+        "market": "sz",
+        "sector": "传媒",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300267",
+        "name": "尔康制药",
+        "market": "sz",
+        "sector": "医药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300733",
+        "name": "西菱动力",
+        "market": "sz",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300866",
+        "name": "安克创新",
+        "market": "sz",
+        "sector": "消费电子",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300947",
+        "name": "德必集团",
+        "market": "sz",
+        "sector": "园区",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301059",
+        "name": "金三江",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301150",
+        "name": "中一科技",
+        "market": "sz",
+        "sector": "新材料",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301149",
+        "name": "隆华新材",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301276",
+        "name": "嘉曼服饰",
+        "market": "sz",
+        "sector": "服装",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      }
+    ],
+    "0602-0608周线1010001": [
+      {
+        "code": "600017",
+        "name": "日照港",
+        "market": "sh",
+        "sector": "物流",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600103",
+        "name": "青山纸业",
+        "market": "sh",
+        "sector": "造纸",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600166",
+        "name": "福田汽车",
+        "market": "sh",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600590",
+        "name": "泰豪科技",
+        "market": "sh",
+        "sector": "军工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600588",
+        "name": "用友网络",
+        "market": "sh",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600826",
+        "name": "兰生股份",
+        "market": "sh",
+        "sector": "贸易",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600846",
+        "name": "同济科技",
+        "market": "sh",
+        "sector": "科技",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600861",
+        "name": "北京人力",
+        "market": "sh",
+        "sector": "人力资源",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "600973",
+        "name": "宝胜股份",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603039",
+        "name": "泛微网络",
+        "market": "sh",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603130",
+        "name": "云中马",
+        "market": "sh",
+        "sector": "纺织",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603339",
+        "name": "四方科技",
+        "market": "sh",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603888",
+        "name": "新华网",
+        "market": "sh",
+        "sector": "传媒",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603929",
+        "name": "亚翔集成",
+        "market": "sh",
+        "sector": "建筑",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "603967",
+        "name": "中创物流",
+        "market": "sh",
+        "sector": "物流",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "605319",
+        "name": "无锡振华",
+        "market": "sh",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688295",
+        "name": "中复神鹰",
+        "market": "sh",
+        "sector": "新材料",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688303",
+        "name": "大全能源",
+        "market": "sh",
+        "sector": "新能源",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "688597",
+        "name": "煜邦电力",
+        "market": "sh",
+        "sector": "电力",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000570",
+        "name": "苏常柴Ａ",
+        "market": "sz",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000925",
+        "name": "众合科技",
+        "market": "sz",
+        "sector": "科技",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "000937",
+        "name": "冀中能源",
+        "market": "sz",
+        "sector": "能源",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "001282",
+        "name": "三联锻造",
+        "market": "sz",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "001287",
+        "name": "中电港",
+        "market": "sz",
+        "sector": "电子",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "001323",
+        "name": "慕思股份",
+        "market": "sz",
+        "sector": "家居",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "001395",
+        "name": "亚联机械",
+        "market": "sz",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002096",
+        "name": "易普力",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002278",
+        "name": "神开股份",
+        "market": "sz",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002331",
+        "name": "皖通科技",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002413",
+        "name": "雷科防务",
+        "market": "sz",
+        "sector": "军工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002426",
+        "name": "胜利精密",
+        "market": "sz",
+        "sector": "电子",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002429",
+        "name": "兆驰股份",
+        "market": "sz",
+        "sector": "电子",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002668",
+        "name": "TCL智家",
+        "market": "sz",
+        "sector": "家电",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "002783",
+        "name": "凯龙股份",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "003002",
+        "name": "壶化股份",
+        "market": "sz",
+        "sector": "化工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300166",
+        "name": "东方国信",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300303",
+        "name": "聚飞光电",
+        "market": "sz",
+        "sector": "电子",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300339",
+        "name": "润和软件",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300342",
+        "name": "天银机电",
+        "market": "sz",
+        "sector": "军工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300414",
+        "name": "中光防雷",
+        "market": "sz",
+        "sector": "通信",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300447",
+        "name": "全信股份",
+        "market": "sz",
+        "sector": "军工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300461",
+        "name": "田中精机",
+        "market": "sz",
+        "sector": "机械",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300482",
+        "name": "万孚生物",
+        "market": "sz",
+        "sector": "医药",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300600",
+        "name": "国瑞科技",
+        "market": "sz",
+        "sector": "军工",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300598",
+        "name": "诚迈科技",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300654",
+        "name": "世纪天鸿",
+        "market": "sz",
+        "sector": "传媒",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "300925",
+        "name": "法本信息",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001信号确认，成交量倍量",
+        "rating": 2
+      },
+      {
+        "code": "301181",
+        "name": "标榜股份",
+        "market": "sz",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301236",
+        "name": "软通动力",
+        "market": "sz",
+        "sector": "软件",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301499",
+        "name": "维科精密",
+        "market": "sz",
+        "sector": "汽车",
+        "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+        "rating": 1
+      },
+      {
+        "code": "301500",
+        "name": "飞南资源",
+        "market": "sz",
+        "sector": "环保",
+        "reason": "周线形态1010001信号确认，6月8日日线吸筹，6月12日成交量倍量",
+        "rating": 3
+      }
+    ],
+    "吸筹出货信号榜": [
+      {
+        "code": "300836",
+        "name": "佰奥智能",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 10笔 收益614.73%"
+      },
+      {
+        "code": "300990",
+        "name": "同飞股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 10笔 收益393.04%"
+      },
+      {
+        "code": "603356",
+        "name": "华菱精工",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 14笔 收益343.96%"
+      },
+      {
+        "code": "603256",
+        "name": "宏和科技",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 9笔 收益294.17%"
+      },
+      {
+        "code": "688710",
+        "name": "益诺思\u0000\u0000",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 7笔 收益291.22%"
+      },
+      {
+        "code": "300486",
+        "name": "东杰智能",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 10笔 收益289.46%"
+      },
+      {
+        "code": "603607",
+        "name": "京华激光",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 11笔 收益255.90%"
+      },
+      {
+        "code": "002975",
+        "name": "博杰股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 11笔 收益226.70%"
+      },
+      {
+        "code": "600708",
+        "name": "光明地产",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 13笔 收益225.53%"
+      },
+      {
+        "code": "002976",
+        "name": "瑞玛精密",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 12笔 收益215.58%"
+      },
+      {
+        "code": "002947",
+        "name": "恒铭达\u0000\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 8笔 收益207.79%"
+      },
+      {
+        "code": "301603",
+        "name": "乔锋智能",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 7笔 收益188.37%"
+      },
+      {
+        "code": "000571",
+        "name": "新大洲A\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 9笔 收益168.98%"
+      },
+      {
+        "code": "301314",
+        "name": "科瑞思\u0000\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 7笔 收益167.98%"
+      },
+      {
+        "code": "605167",
+        "name": "利柏特\u0000\u0000",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 11笔 收益165.50%"
+      },
+      {
+        "code": "603285",
+        "name": "键邦股份",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 7笔 收益160.33%"
+      },
+      {
+        "code": "300808",
+        "name": "久量股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 11笔 收益149.71%"
+      },
+      {
+        "code": "603399",
+        "name": "永杉锂业",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 7笔 收益149.19%"
+      },
+      {
+        "code": "688351",
+        "name": "微电生理",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 11笔 收益148.78%"
+      },
+      {
+        "code": "301148",
+        "name": "嘉戎技术",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 8笔 收益144.41%"
+      },
+      {
+        "code": "002023",
+        "name": "海特高新",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 11笔 收益134.49%"
+      },
+      {
+        "code": "301499",
+        "name": "维科精密",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 7笔 收益128.38%"
+      },
+      {
+        "code": "000833",
+        "name": "粤桂股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 6笔 收益126.31%"
+      },
+      {
+        "code": "301607",
+        "name": "富特科技",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 6笔 收益126.26%"
+      },
+      {
+        "code": "300843",
+        "name": "胜蓝股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 8笔 收益117.67%"
+      },
+      {
+        "code": "002888",
+        "name": "惠威科技",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 9笔 收益116.79%"
+      },
+      {
+        "code": "603386",
+        "name": "骏亚科技",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 10笔 收益113.02%"
+      },
+      {
+        "code": "688367",
+        "name": "工大高科",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 6笔 收益106.23%"
+      },
+      {
+        "code": "603351",
+        "name": "威尔药业",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 9笔 收益102.77%"
+      },
+      {
+        "code": "301580",
+        "name": "爱迪特\u0000\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 6笔 收益102.07%"
+      },
+      {
+        "code": "301285",
+        "name": "鸿日达\u0000\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 8笔 收益101.83%"
+      },
+      {
+        "code": "000070",
+        "name": "特发信息",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 5笔 收益89.19%"
+      },
+      {
+        "code": "603271",
+        "name": "永杰新材",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 5笔 收益87.11%"
+      },
+      {
+        "code": "688273",
+        "name": "麦澜德\u0000\u0000",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 6笔 收益82.20%"
+      },
+      {
+        "code": "002256",
+        "name": "兆新股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 6笔 收益78.84%"
+      },
+      {
+        "code": "301458",
+        "name": "钧崴电子",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 4笔 收益77.27%"
+      },
+      {
+        "code": "300127",
+        "name": "银河磁体",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 8笔 收益75.66%"
+      },
+      {
+        "code": "002072",
+        "name": "凯瑞德\u0000\u0000",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 6笔 收益75.61%"
+      },
+      {
+        "code": "600955",
+        "name": "维远股份",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 7笔 收益75.25%"
+      },
+      {
+        "code": "688758",
+        "name": "赛分科技",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 5笔 收益68.80%"
+      },
+      {
+        "code": "603339",
+        "name": "四方科技",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 6笔 收益66.03%"
+      },
+      {
+        "code": "002452",
+        "name": "长高电气",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 9笔 收益64.87%"
+      },
+      {
+        "code": "301662",
+        "name": "宏工科技",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 3笔 收益62.26%"
+      },
+      {
+        "code": "603980",
+        "name": "吉华集团",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 5笔 收益61.91%"
+      },
+      {
+        "code": "301630",
+        "name": "同宇新材",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 2笔 收益51.72%"
+      },
+      {
+        "code": "002748",
+        "name": "世龙实业",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 5笔 收益47.32%"
+      },
+      {
+        "code": "600596",
+        "name": "新安股份",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 5笔 收益46.98%"
+      },
+      {
+        "code": "688411",
+        "name": "海博思创",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益45.88%"
+      },
+      {
+        "code": "688545",
+        "name": "兴福电子",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 3笔 收益36.58%"
+      },
+      {
+        "code": "601939",
+        "name": "建设银行",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 6笔 收益32.51%"
+      },
+      {
+        "code": "301563",
+        "name": "云汉芯城",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 2笔 收益31.52%"
+      },
+      {
+        "code": "688727",
+        "name": "恒坤新材",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益25.29%"
+      },
+      {
+        "code": "603124",
+        "name": "江南新材",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益22.41%"
+      },
+      {
+        "code": "603175",
+        "name": "超颖电子",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益22.27%"
+      },
+      {
+        "code": "301629",
+        "name": "矽电股份",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 2笔 收益22.24%"
+      },
+      {
+        "code": "688783",
+        "name": "西安奕材",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益17.17%"
+      },
+      {
+        "code": "688712",
+        "name": "北芯生命",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益14.43%"
+      },
+      {
+        "code": "603418",
+        "name": "友升股份",
+        "market": "sh",
+        "reason": "吸筹出货100%胜率 2笔 收益9.29%"
+      },
+      {
+        "code": "001335",
+        "name": "信凯科技",
+        "market": "sz",
+        "reason": "吸筹出货100%胜率 3笔 收益8.75%"
+      }
+    ]
+  }
+}

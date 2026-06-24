@@ -25,14 +25,14 @@
 CLI 用法
 
   # 日线扫描（默认）
-  python indicators/zhuli_xichou.py 000970
+  python 指标/zhuli_xichou.py 000970
 
   # 周线 / 月线
-  python indicators/zhuli_xichou.py 000970 --period weekly
-  python indicators/zhuli_xichou.py 000970 --period monthly
+  python 指标/zhuli_xichou.py 000970 --period weekly
+  python 指标/zhuli_xichou.py 000970 --period monthly
 
   # 自定义数据量
-  python indicators/zhuli_xichou.py 600519 --count 200
+  python 指标/zhuli_xichou.py 600519 --count 200
 
 参数说明：
   code                股票代码（可选，默认600519）
@@ -40,7 +40,7 @@ CLI 用法
   --count / -c        获取K线根数（默认150）
 
 编程导入：
-  from indicators.zhuli_xichou import zhuli_xichou, fetch_kline, sma
+  from 指标.zhuli_xichou import zhuli_xichou, fetch_kline, sma
 
   例:
       df = fetch_kline('sh600519', count=150, frequency=4)  # 日线

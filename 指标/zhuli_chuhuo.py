@@ -29,14 +29,14 @@
 CLI 用法
 
   # 日线扫描（默认）
-  python indicators/zhuli_chuhuo.py 000970
+  python 指标/zhuli_chuhuo.py 000970
 
   # 周线 / 月线
-  python indicators/zhuli_chuhuo.py 000970 --period weekly
-  python indicators/zhuli_chuhuo.py 000970 --period monthly
+  python 指标/zhuli_chuhuo.py 000970 --period weekly
+  python 指标/zhuli_chuhuo.py 000970 --period monthly
 
   # 自定义数据量
-  python indicators/zhuli_chuhuo.py 600519 --count 200
+  python 指标/zhuli_chuhuo.py 600519 --count 200
 
 参数说明：
   code                股票代码（可选，默认600519）
@@ -44,7 +44,7 @@ CLI 用法
   --count / -c        获取K线根数（默认150）
 
 编程导入：
-  from indicators.zhuli_chuhuo import zhuli_chuhuo
+  from 指标.zhuli_chuhuo import zhuli_chuhuo
 
   例:
       df = fetch_kline('sh600519', count=150, frequency=4)  # 日线
@@ -57,9 +57,9 @@ CLI 用法
   zlch_chengjie       承接（正值=承接信号）
 
 依赖：
-  indicators.zhuli_xichou.sma  — 复用 SMA 递推算法
-  indicators.zhuli_xichou.fetch_kline — 复用数据获取
-  indicators.zhuli_xichou.PERIOD_MAP  — 复用周期映射
+  指标.zhuli_xichou.sma  — 复用 SMA 递推算法
+  指标.zhuli_xichou.fetch_kline — 复用数据获取
+  指标.zhuli_xichou.PERIOD_MAP  — 复用周期映射
 """
 
 import pandas as pd
@@ -67,11 +67,11 @@ import numpy as np
 
 # 兼容包导入和直接脚本运行
 try:
-    from indicators.zhuli_xichou import sma
+    from 指标.zhuli_xichou import sma
 except ImportError:
     import sys, os
     sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-    from indicators.zhuli_xichou import sma
+    from 指标.zhuli_xichou import sma
 
 
 def zhuli_chuhuo(df: pd.DataFrame) -> pd.DataFrame:
@@ -131,11 +131,11 @@ if __name__ == '__main__':
     import sys
     import argparse
     try:
-        from indicators.zhuli_xichou import fetch_kline, PERIOD_MAP
+        from 指标.zhuli_xichou import fetch_kline, PERIOD_MAP
     except ImportError:
         import sys, os
         sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-        from indicators.zhuli_xichou import fetch_kline, PERIOD_MAP
+        from 指标.zhuli_xichou import fetch_kline, PERIOD_MAP
 
     parser = argparse.ArgumentParser(description="主力出货指标")
     parser.add_argument("code", nargs="?", default="600519",

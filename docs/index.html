@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每周关注</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <svg class="header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg>
+      <h1 class="header-title">每周关注</h1>
+    </div>
+    <div class="header-right">
+      <select id="week-selector" aria-label="选择周次">
+        <option value="">加载中...</option>
+      </select>
+      <span id="date-range" class="date-range"></span>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="info-bar">
+      <span id="pattern-info" class="pattern-info" style="display:none;"></span>
+      <span id="stocks-count" class="stocks-count"></span>
+      <button id="export-btn" class="export-btn" title="导出股票代码为TXT">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        导出代码
+      </button>
+    </div>
+    <div id="sector-stats" class="sector-stats" style="display:none;"></div>
+    <div class="table-wrapper">
+      <table id="watchlist-table">
+        <thead>
+          <tr>
+            <th class="col-code">代码</th>
+            <th class="col-name">名称</th>
+            <th class="col-sector">板块</th>
+            <th class="col-reason">关注理由</th>
+            <th class="col-price">现价</th>
+            <th class="col-rating">评级</th>
+          </tr>
+        </thead>
+        <tbody id="watchlist-body">
+        </tbody>
+      </table>
+    </div>
+    <div id="empty-state" class="empty-state" style="display:none;">
+      <p>暂无关注数据</p>
+    </div>
+    <div id="error-state" class="error-state" style="display:none;">
+      <p>数据加载失败，请稍后刷新重试</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>以上内容仅为个人研究记录，不构成任何投资建议</p>
+    <p>最后更新：<span id="updated-at">-</span></p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

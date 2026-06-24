@@ -16,44 +16,7 @@ from base import get_stock_list, scan_all
 # 扫描器注册表
 # ═══════════════════════════════════════════
 
-SCANNERS = {
-    'daily-pattern': {
-        'module': 'daily_pattern_scan',
-        'func': 'check_pattern',
-        'desc': '日线形态筛选',
-        'params': {'pattern': '101000', 'lookback': 30, 'price_min': 0, 'price_max': 9999},
-    },
-    'weekly-pattern': {
-        'module': 'weekly_pattern_scan',
-        'func': 'check_weekly_pattern',
-        'desc': '周线形态筛选',
-        'params': {'pattern': '101000', 'lookback': 10},
-    },
-    'volume-breakout': {
-        'module': 'volume_breakout',
-        'func': 'check_breakout',
-        'desc': '横盘放量突破',
-        'params': {'max_range_ratio': 1.15},
-    },
-    '10x-volume': {
-        'module': 'volume_10x_scan',
-        'func': 'check_10x_volume',
-        'desc': '10倍放量',
-        'params': {'ratio_threshold': 10.0},
-    },
-    'xichou': {
-        'module': 'full_xichou_scan',
-        'func': 'check_xichou',
-        'desc': '主力吸筹',
-        'params': {'frequency': 4, 'count': 150, 'min_klines': 60, 'signal_window_days': 30},
-    },
-    'tech-decline': {
-        'module': 'tech_volume_decline',
-        'func': 'check_volume_declining',
-        'desc': '科技板块缩量',
-        'params': {'days': 20},
-    },
-}
+SCANNERS = {}  # 扫描器均已迁移至 指标/ 目录，通过编程方式调用
 
 
 def _load_check_fn(scanner_name: str):
@@ -72,9 +35,7 @@ def scan(scanner_name: str, market: str = 'all', workers: int = 20, **kwargs) ->
     返回: 命中结果列表
 
     示例:
-        results = scan('daily-pattern', pattern='101000', lookback=30, market='688')
-        results = scan('xichou', period='daily', market='all')
-        results = scan('volume-breakout', max_range_ratio=1.10)
+        pass
     """
     if scanner_name not in SCANNERS:
         raise ValueError(f"未知扫描器: {scanner_name}, 可选: {list(SCANNERS.keys())}")

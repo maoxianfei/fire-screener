@@ -1,0 +1,401 @@
+:root {
+  --bg-page: #f5f5f4;
+  --bg-white: #ffffff;
+  --bg-header: #ffffff;
+  --bg-row-alt: #fafaf9;
+  --bg-row-hover: #f0f9ff;
+
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-tertiary: #a8a29e;
+  --text-link: #2563eb;
+
+  --border-light: #e7e5e4;
+  --border-header: #d6d3d1;
+
+  --color-target: #2563eb;
+  --color-stop: #dc2626;
+  --color-star: #d97706;
+
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon {
+  color: var(--text-link);
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#week-selector {
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--bg-white);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+#week-selector:focus {
+  outline: 2px solid var(--text-link);
+  outline-offset: 1px;
+}
+
+.date-range {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 16px 24px;
+}
+
+/* Info bar */
+.info-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.pattern-info {
+  background: #DBEAFE;
+  color: #1E40AF;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.stocks-count {
+  color: var(--text-tertiary);
+}
+
+/* Export button */
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.export-btn:hover {
+  color: var(--text-link);
+  border-color: var(--text-link);
+  background: #EFF6FF;
+}
+
+.export-btn:active {
+  transform: scale(0.97);
+}
+
+.export-btn svg {
+  flex-shrink: 0;
+}
+
+.table-wrapper {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table */
+#watchlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 720px;
+}
+
+#watchlist-table thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  background: var(--bg-row-alt);
+  border-bottom: 1px solid var(--border-header);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+#watchlist-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+
+#watchlist-table tbody tr:nth-child(even) {
+  background: var(--bg-row-alt);
+}
+
+#watchlist-table tbody tr:hover {
+  background: var(--bg-row-hover);
+}
+
+#watchlist-table td {
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+
+/* Column styles */
+.col-code, .col-name, .col-sector, .col-reason {
+  text-align: left;
+}
+
+.col-price, .col-rating {
+  text-align: center;
+}
+
+td.col-code {
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+td.col-name {
+  font-weight: 500;
+}
+
+td.col-reason {
+  color: var(--text-secondary);
+  white-space: normal;
+  word-break: break-all;
+}
+
+td.col-price {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+td.col-rating {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Sector tag */
+.sector-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.sector-白酒  { background: #FEF3C7; color: #92400E; }
+.sector-新能源 { background: #DBEAFE; color: #1E40AF; }
+.sector-医药  { background: #D1FAE5; color: #065F46; }
+.sector-科技  { background: #E0E7FF; color: #3730A3; }
+.sector-金融  { background: #FCE7F3; color: #9D174D; }
+.sector-消费  { background: #FEF9C3; color: #854D0E; }
+.sector-通信  { background: #E0F2FE; color: #075985; }
+.sector-化工  { background: #F3E8FF; color: #6B21A8; }
+.sector-能源  { background: #FFF7ED; color: #C2410C; }
+.sector-银行  { background: #ECFDF5; color: #065F46; }
+.sector-食品  { background: #FEF9C3; color: #854D0E; }
+.sector-农业  { background: #D1FAE5; color: #166534; }
+.sector-半导体 { background: #DBEAFE; color: #1E40AF; }
+.sector-新材料 { background: #E0E7FF; color: #3730A3; }
+.sector-机械  { background: #F1F5F9; color: #334155; }
+.sector-交运设备 { background: #F0FDFA; color: #134E4A; }
+.sector-环保  { background: #D1FAE5; color: #065F46; }
+.sector-零售  { background: #FEF3C7; color: #92400E; }
+.sector-汽车  { background: #E0F2FE; color: #075985; }
+.sector-消费电子 { background: #DBEAFE; color: #1E40AF; }
+.sector-传媒  { background: #FCE7F3; color: #9D174D; }
+.sector-服装  { background: #FDF2F8; color: #9D174D; }
+.sector-家纺  { background: #FFF1F2; color: #9F1239; }
+.sector-园区  { background: #F3F4F6; color: #4B5563; }
+.sector-物流  { background: #E0F2FE; color: #075985; }
+.sector-造纸  { background: #FEF3C7; color: #92400E; }
+.sector-军工  { background: #FEE2E2; color: #991B1B; }
+.sector-软件  { background: #E0E7FF; color: #3730A3; }
+.sector-贸易  { background: #FEF9C3; color: #854D0E; }
+.sector-人力资源 { background: #F3E8FF; color: #6B21A8; }
+.sector-电力  { background: #FEF3C7; color: #92400E; }
+.sector-纺织  { background: #FDF2F8; color: #9D174D; }
+.sector-建筑  { background: #F1F5F9; color: #334155; }
+.sector-电子  { background: #DBEAFE; color: #1E40AF; }
+.sector-家居  { background: #FEF9C3; color: #854D0E; }
+.sector-家电  { background: #E0F2FE; color: #075985; }
+.sector-铁路公路 { background: #F1F5F9; color: #334155; }
+.sector-文娱用品 { background: #FCE7F3; color: #9D174D; }
+.sector-汽车零部件 { background: #E0F2FE; color: #075985; }
+.sector-煤炭开采 { background: #FFF7ED; color: #C2410C; }
+.sector-炼化及贸易 { background: #FFF7ED; color: #C2410C; }
+.sector-化学制品 { background: #F3E8FF; color: #6B21A8; }
+.sector-化学制药 { background: #D1FAE5; color: #065F46; }
+.sector-医疗器械 { background: #D1FAE5; color: #065F46; }
+.sector-专用设备 { background: #F1F5F9; color: #334155; }
+.sector-通信服务 { background: #E0F2FE; color: #075985; }
+.sector-中药 { background: #D1FAE5; color: #065F46; }
+.sector-default { background: #F3F4F6; color: #4B5563; }
+
+/* Price colors */
+.price-target {
+  color: var(--color-target);
+}
+
+.price-stop {
+  color: var(--color-stop);
+}
+
+/* Star rating */
+.stars {
+  color: var(--color-star);
+  letter-spacing: 1px;
+}
+
+.sector-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.sector-stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 12px;
+  transition: all 0.15s;
+}
+
+.sector-stat-item:hover {
+  border-color: var(--text-link);
+  box-shadow: 0 1px 4px rgba(37,99,235,0.1);
+}
+
+.sector-stat-name {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sector-stat-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--text-link);
+}
+
+.sector-stat-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--text-link);
+  opacity: 0.3;
+  transition: width 0.3s ease;
+}
+
+/* States */
+.empty-state, .error-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-tertiary);
+}
+
+.error-state {
+  color: var(--color-stop);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .main {
+    padding: 12px 0;
+  }
+
+  .table-wrapper {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .footer {
+    padding: 12px 16px;
+  }
+}

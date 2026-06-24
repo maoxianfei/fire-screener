@@ -1,0 +1,369 @@
+{
+  "date_start": "2026.06.08",
+  "date_end": "2026.06.14",
+  "updated_at": "2026.06.15",
+  "pattern": "1010001",
+  "pattern_name": "阳阴阳阴阴阴阳",
+  "stocks": [
+    {
+      "code": "600050",
+      "name": "中国联通",
+      "sector": "通信",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 4.4,
+      "rating": 1
+    },
+    {
+      "code": "600694",
+      "name": "大商股份",
+      "sector": "零售",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 14.79,
+      "rating": 1
+    },
+    {
+      "code": "600935",
+      "name": "华塑股份",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 2.37,
+      "rating": 1
+    },
+    {
+      "code": "600955",
+      "name": "维远股份",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 15.92,
+      "rating": 1
+    },
+    {
+      "code": "600989",
+      "name": "宝丰能源",
+      "sector": "能源",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 22.3,
+      "rating": 1
+    },
+    {
+      "code": "601216",
+      "name": "君正集团",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 5.21,
+      "rating": 1
+    },
+    {
+      "code": "601665",
+      "name": "齐鲁银行",
+      "sector": "银行",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 6.43,
+      "rating": 1
+    },
+    {
+      "code": "601766",
+      "name": "中国中车",
+      "sector": "交运设备",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 5.76,
+      "rating": 1
+    },
+    {
+      "code": "603217",
+      "name": "元利科技",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 24.46,
+      "rating": 1
+    },
+    {
+      "code": "603233",
+      "name": "大参林",
+      "sector": "医药",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 16.68,
+      "rating": 1
+    },
+    {
+      "code": "603317",
+      "name": "天味食品",
+      "sector": "食品",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 13.89,
+      "rating": 1
+    },
+    {
+      "code": "603363",
+      "name": "傲农生物",
+      "sector": "农业",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 2.93,
+      "rating": 1
+    },
+    {
+      "code": "603507",
+      "name": "振江股份",
+      "sector": "机械",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 38.03,
+      "rating": 1
+    },
+    {
+      "code": "603711",
+      "name": "香飘飘",
+      "sector": "食品",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 13.26,
+      "rating": 1
+    },
+    {
+      "code": "605296",
+      "name": "神农集团",
+      "sector": "农业",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 26.31,
+      "rating": 1
+    },
+    {
+      "code": "688209",
+      "name": "英集芯",
+      "sector": "半导体",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 22.33,
+      "rating": 1
+    },
+    {
+      "code": "688275",
+      "name": "万润新能",
+      "sector": "新能源",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 130.11,
+      "rating": 1
+    },
+    {
+      "code": "688278",
+      "name": "特宝生物",
+      "sector": "医药",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 56.99,
+      "rating": 1
+    },
+    {
+      "code": "688376",
+      "name": "美埃科技",
+      "sector": "环保",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 78.0,
+      "rating": 1
+    },
+    {
+      "code": "688530",
+      "name": "欧莱新材",
+      "sector": "新材料",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 58.7,
+      "rating": 1
+    },
+    {
+      "code": "688720",
+      "name": "艾森股份",
+      "sector": "半导体",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 72.46,
+      "rating": 1
+    },
+    {
+      "code": "000833",
+      "name": "粤桂股份",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 23.45,
+      "rating": 1
+    },
+    {
+      "code": "000949",
+      "name": "新乡化纤",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 6.86,
+      "rating": 1
+    },
+    {
+      "code": "000953",
+      "name": "中哲精化",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 5.84,
+      "rating": 1
+    },
+    {
+      "code": "002124",
+      "name": "天邦食品",
+      "sector": "农业",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 2.35,
+      "rating": 1
+    },
+    {
+      "code": "002293",
+      "name": "罗莱生活",
+      "sector": "家纺",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 10.34,
+      "rating": 1
+    },
+    {
+      "code": "003026",
+      "name": "中晶科技",
+      "sector": "半导体",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 34.52,
+      "rating": 1
+    },
+    {
+      "code": "300264",
+      "name": "佳创视讯",
+      "sector": "传媒",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 8.86,
+      "rating": 1
+    },
+    {
+      "code": "300267",
+      "name": "尔康制药",
+      "sector": "医药",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 3.48,
+      "rating": 1
+    },
+    {
+      "code": "300733",
+      "name": "西菱动力",
+      "sector": "汽车",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 14.46,
+      "rating": 1
+    },
+    {
+      "code": "300866",
+      "name": "安克创新",
+      "sector": "消费电子",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 116.5,
+      "rating": 1
+    },
+    {
+      "code": "300947",
+      "name": "德必集团",
+      "sector": "园区",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 14.04,
+      "rating": 1
+    },
+    {
+      "code": "301059",
+      "name": "金三江",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 14.66,
+      "rating": 1
+    },
+    {
+      "code": "301150",
+      "name": "中一科技",
+      "sector": "新材料",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 51.82,
+      "rating": 1
+    },
+    {
+      "code": "301149",
+      "name": "隆华新材",
+      "sector": "化工",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 12.13,
+      "rating": 1
+    },
+    {
+      "code": "301276",
+      "name": "嘉曼服饰",
+      "sector": "服装",
+      "reason": "周线形态1010001(阳阴阳阴阴阴阳)信号确认",
+      "target_price": null,
+      "stop_loss": null,
+      "current_price": 31.2,
+      "rating": 1
+    }
+  ]
+}

@@ -1,55 +1,65 @@
-# Fire-Screener — A股全栈选股系统
+# Fire-Screener — A股技术指标工具集
 
-K线形态全市场扫描 + 主力吸筹识别 + 放量突破 + 三重过滤 + 技术分析工具集。
+K线阴阳形态匹配 + 主力吸筹/出货识别 + 成交量异动检测。
 
-原项目名 **fire-earth**，已统一合并至此目录。
+原项目名 **fire-earth**，已重构为纯指标库架构。
 
 ---
 
 ## 快速开始
 
-### 统一入口 (CLI)
+### 指标脚本直接调用
 
 ```bash
 cd ~/claude_code/fire-screener
-python run.py <scanner> [options]
 
-# 可用扫描器一览
-python run.py daily-pattern --pattern 101000 --lookback 30
-python run.py weekly-pattern --pattern 101000
-python run.py volume-breakout --max-range-ratio 1.15
-python run.py 10x-volume --ratio-threshold 10
-python run.py xichou --frequency 4 --count 150
-python run.py tech-decline --days 20
-python run.py tech-volume-decline              # 技术面+量能同步衰退
-python run.py triple-filter                    # 三重过滤（日线+周线+量能）
-python run.py weekly-zhuli-filter              # 周线主力资金过滤
-python run.py full-xichou                      # 全量吸筹扫描
-python run.py help                             # 查看所有扫描器
+# K线形态匹配（默认全卦象扫描）
+python 指标/kline_pattern.py --code sz000970
+
+# 指定形态搜索
+python 指标/kline_pattern.py 101000 --code sz000970
+
+# 主力吸筹
+python 指标/zhuli_xichou.py 000970 --period daily
+
+# 主力出货
+python 指标/zhuli_chuhuo.py 000970 --period weekly
+
+# 量能异动（默认±30%）
+python 指标/volume.py anomaly --code sz000970
+
+# 横盘放量突破
+python 指标/volume.py breakout --code sz000970
 ```
 
 ### 编程式调用
 
 ```python
-from run import scan
-results = scan('daily-pattern', pattern='101000', market='688')
+# 指标导入
+from 指标.kline_pattern import match_pattern, multi_pattern_match
+from 指标.zhuli_xichou import zhuli_xichou, fetch_kline
+from 指标.zhuli_chuhuo import zhuli_chuhuo
+from 指标.volume import check_volume_breakout, check_volume_anomaly
+
+# 获取数据并计算
+df = fetch_kline('sh600519', count=150, frequency=4)   # 日线
+df = zhuli_xichou(df)                                    # 吸筹指标
+signals = df[df['zlxc_jinchang'] > 0]                    # 进场信号
 ```
 
-### 直接使用底层模块
+### 基础设施
 
 ```python
-from base import fetch_klines, zhuli_xichou, get_stock_list
-df = fetch_klines('sh600519', count=150)
-df = zhuli_xichou(df)
+from base import fetch_klines, get_stock_list, scan_all, save_results
+
+# 获取股票列表
 stocks = get_stock_list(market='688')
-```
 
-### 旧版单体扫描器 (保留)
+# 全市场扫描框架
+results, total = scan_all(stocks, check_fn, workers=20)
 
-```bash
-python screener.py --pattern 1010001 --period daily --count 7 --price-min 8 --price-max 12 --step 1
-python dual_filter.py                    # 周线→日线二次筛选
-python analyze_bottom.py                 # 底部形态分析
+# 保存结果
+save_results(results, "扫描结果", csv_columns=[...])
 ```
 
 ---
@@ -59,62 +69,94 @@ python analyze_bottom.py                 # 底部形态分析
 ```
 fire-screener/
 │
-├── run.py                  # 统一入口（CLI + 编程式 API）
-├── base.py                 # 共享基础设施（客户端、数据、指标、扫描框架、输出）
+├── 指标/                          # 📁 基础指标库（核心）
+│   ├── kline_pattern.py          #     K线阴阳形态匹配 + 预设卦象
+│   ├── zhuli_xichou.py           #     主力吸筹（进场/洗盘）
+│   ├── zhuli_chuhuo.py           #     主力出货（出货/承接）
+│   └── volume.py                 #     成交量（放量突破 + 量能异动）
 │
-├── daily_pattern_scan.py   # 日线形态筛选
-├── weekly_pattern_scan.py  # 周线形态筛选
-├── volume_breakout.py      # 横盘放量突破
-├── volume_10x_scan.py      # 10倍放量
-├── full_xichou_scan.py     # 主力吸筹
-├── triple_filter.py        # 三重过滤（周线+吸筹+倍量）
-├── weekly_zhuli_filter.py  # 周线+吸筹双重过滤
-├── tech_volume_decline.py  # 技术面+量能同步衰退
+├── base.py                       # 共享基础设施
+│   ├── get_client()              #   线程安全 mootdx 客户端
+│   ├── get_stock_list()          #   股票列表
+│   ├── fetch_klines()            #   K线数据获取
+│   ├── zhuli_xichou()            #   吸筹指标（兼容旧版）
+│   ├── sma()                     #   通达信 SMA 递推
+│   ├── scan_all()                #   全市场并发扫描框架
+│   └── save_results()            #   CSV/JSON 输出
 │
-├── screener.py             # [旧] K线阴阳形态全市场扫描器
-├── data_fetcher.py         # [旧] 数据层：mootdx 获取A股K线数据
-├── dual_filter.py          # [旧] 二次筛选：周线+日线联合过滤
-├── analyze_bottom.py       # [旧] 底部形态分析
-│
+├── run.py                        # 统一入口（编程式 scan()）
 ├── .gitignore
 ├── README.md
-└── output/                 # 扫描结果（CSV + JSON + HTML）
-    └── archive/            # 旧版扫描结果归档
+└── output/                       # 扫描结果输出
 ```
 
 ---
 
-## 市场过滤
+## 指标说明
 
-`market` 参数支持：
+| 脚本 | 函数 | 信号 | 多周期 |
+|------|------|------|--------|
+| `kline_pattern.py` | `match_pattern()` | 阴阳形态匹配 + 火地晋/水雷屯/地火明夷 | ✅ |
+| `zhuli_xichou.py` | `zhuli_xichou()` | 🔴 主力进场 / 🟢 洗盘 | ✅ |
+| `zhuli_chuhuo.py` | `zhuli_chuhuo()` | 🟢 主力出货 / 🔴 承接 | ✅ |
+| `volume.py` | `check_volume_anomaly()` | 📈 倍量≥30% / 📉 缩量≥30% | ✅ |
+| `volume.py` | `check_volume_breakout()` | 横盘放量突破（5步复合条件） | ✅ |
 
-| 参数 | 范围 |
+### 预设卦象（kline_pattern.py）
+
+| 形态 | 卦名 |
 |------|------|
-| `all` | 全市场 |
-| `sh` | 沪市 |
-| `sz` | 深市 |
-| `688` | 科创板 |
-| `30` | 创业板 |
-| `60` | 沪主板 |
-| `00` | 深主板 |
+| `101000` | 火地晋 |
+| `010001` | 水雷屯 |
+| `000101` | 地火明夷 |
+
+### 量能异动标准（volume.py）
+
+| 条件 | 判定 |
+|------|------|
+| 今日量 / 昨量 ≥ 1.30 | 📈 倍量 |
+| 今日量 / 昨量 ≤ 0.70 | 📉 缩量 |
+| 0.70 ~ 1.30 | 正常波动 |
+
+---
+
+## 多周期支持
+
+所有指标脚本支持 `--period` 参数：
+
+```bash
+# 日线 / 周线 / 月线
+python 指标/zhuli_xichou.py 600519 --period daily
+python 指标/zhuli_xichou.py 600519 --period weekly
+python 指标/zhuli_xichou.py 600519 --period monthly
+```
+
+编程时通过 `frequency` 参数控制：
+- `frequency=4` — 日线
+- `frequency=5` — 周线
+- `frequency=6` — 月线
 
 ---
 
 ## 技术要点
 
 - **数据源**：mootdx (通达信行情接口)
-- **形态定义**：`close >= open` 为阳(1)，否则为阴(0)
-- **A股颜色**：红涨绿跌
+- **形态定义**：`close > open` 为阳(1)，否则为阴(0)
 - **RSI算法**：Wilder平滑（非SMA）
-- **二轮量价规则**：最近25天至少1天成交量 > 120日均量；收盘价 ≥ 70日均线 × 0.95
-- **mootdx frequency 参数**：4=1分钟, 5=周线, 6=月线, 9=日线, 10=季线, 11=年线
-- **macOS注意事项**：禁用SSL验证（mootdx兼容性）
+- **股票代码格式**：`sh600519` / `sz000001`
+- **mootdx frequency**：4=日线, 5=周线, 6=月线
+- **mootdx 客户端**：`threading.local()` 线程安全，默认 20 并发
 
-## 关键设计
+---
 
-- mootdx 客户端通过 `threading.local()` 实现线程安全，默认 20 并发
-- 股票代码格式：`sh600519` / `sz000001`
-- 输出到 `output/` 目录（CSV + JSON）
+## 注意事项
+
+- 下降趋势中主力吸筹可能连续出现进场信号，需结合趋势判断
+- 上升趋势中主力出货可能连续出现出货信号，需结合趋势判断
+- 一个月内连续同方向信号可能是趋势延续而非真实信号
+- 建议结合 MA20/MA60 方向辅助判断
+
+---
 
 ## 依赖
 
@@ -126,6 +168,5 @@ fire-screener/
 
 ## 关联项目
 
-- `~/claude_code/stock-strategy/` — 股票池管理、回测、主力吸筹/出货指标
-- `~/claude_code/trading-advisor/` — 交易推荐系统（短线个股+长线ETF轮动）
-- `~/richard/claude_code/stock-strategy/web/` — 监控大屏Web面板（端口8080）
+- `~/claude_code/stock-strategy/` — 股票池管理、回测
+- `~/claude_code/trading-advisor/` — 交易推荐系统（短线+ETF轮动）
