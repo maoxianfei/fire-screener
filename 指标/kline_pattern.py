@@ -15,6 +15,7 @@ K线阴阳形态匹配与筛选工具，支持预设卦象形态。
     101000  火地晋   火在上、地在下，光明上升之象
     010001  水雷屯   水在上、雷在下，创始艰难之象
     000101  地火明夷 地在上、火在下，光明受伤之象
+    010101  水火既济 水在上、火在下，事已成之象
 
 ────────────────────────────────────────────────────
 CLI 用法
@@ -65,6 +66,7 @@ HEXAGRAM_MAP: dict[str, str] = {
     "101000": "火地晋",      # 火在上、地在下，光明上升
     "010001": "水雷屯",      # 水在上、雷在下，创始艰难
     "000101": "地火明夷",    # 地在上、火在下，光明受伤
+    "010101": "水火既济",    # 水在上、火在下，事已成
 }
 
 
@@ -131,7 +133,8 @@ def match_pattern(df: pd.DataFrame, pattern: str,
     if pattern not in daily_pattern:
         return None
 
-    idx = daily_pattern.find(pattern)
+    # 找最近一次出现（rfind）
+    idx = daily_pattern.rfind(pattern)
     matched = recent.iloc[idx:idx + len(pattern)]
 
     return {

@@ -3,63 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>每周关注</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>股票池</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0a0f1a;
+      color: #e6edf3;
+      min-height: 100vh;
+      padding: 16px 20px;
+    }
+    body::before {
+      content: '';
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 15% 30%, rgba(0,255,136,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse at 85% 70%, rgba(96,165,250,0.03) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+    #app { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+    .mono { font-family: "SF Mono", "Fira Code", "Consolas", monospace; }
+    .text-up { color: #ff4444; }
+    .text-down { color: #00cc66; }
+    .text-muted { color: rgba(255,255,255,0.3); }
+
+    /* Header */
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0 14px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap; gap: 10px;
+    }
+    .header-left { display: flex; align-items: center; gap: 10px; }
+    .header-icon { color: #00cc66; }
+    .header-title { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; }
+    .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .update-time {
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      padding: 4px 10px; background: rgba(255,255,255,0.04); border-radius: 4px;
+    }
+
+    /* Tab bar */
+    .tabs {
+      display: flex; gap: 4px; padding: 12px 0 8px; overflow-x: auto;
+      flex-wrap: nowrap; white-space: nowrap;
+    }
+    .tab-btn {
+      padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);
+      background: transparent; color: rgba(255,255,255,0.5); cursor: pointer;
+      font-size: 0.82rem; transition: all 0.2s; flex-shrink: 0;
+    }
+    .tab-btn:hover { background: rgba(255,255,255,0.06); color: #e6edf3; }
+    .tab-btn.active {
+      background: rgba(0,204,102,0.12); color: #00cc66;
+      border-color: rgba(0,204,102,0.25);
+    }
+    .tab-btn .count {
+      display: inline-block; margin-left: 4px; padding: 0 5px;
+      background: rgba(255,255,255,0.06); border-radius: 3px;
+      font-size: 0.75rem; color: rgba(255,255,255,0.4);
+    }
+
+    /* Table */
+    .table-wrap {
+      background: rgba(255,255,255,0.02); border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05); overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      padding: 10px 12px; text-align: left; font-size: 0.78rem;
+      color: rgba(255,255,255,0.4); font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    td { padding: 8px 12px; font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .code-cell { color: rgba(255,255,255,0.5); font-family: monospace; font-size: 0.82rem; }
+    .name-cell { font-weight: 500; }
+    .market-sh { color: #00cc66; font-size: 0.7rem; }
+    .market-sz { color: #ff4444; font-size: 0.7rem; }
+    .group-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 3px;
+      font-size: 0.75rem; background: rgba(96,165,250,0.1); color: rgba(96,165,250,0.7);
+    }
+
+    /* Stats bar */
+    .stats {
+      display: flex; gap: 16px; padding: 10px 0; flex-wrap: wrap;
+      font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    }
+    .stats span { display: flex; align-items: center; gap: 4px; }
+    .stats .num { color: #e6edf3; font-weight: 600; }
+
+    /* Search */
+    .search-box {
+      padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04); color: #e6edf3; font-size: 0.85rem;
+      width: 200px; outline: none; transition: border-color 0.2s;
+    }
+    .search-box:focus { border-color: rgba(0,204,102,0.3); }
+    .search-box::placeholder { color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      .header { flex-direction: column; align-items: flex-start; }
+      .search-box { width: 100%; }
+      td, th { padding: 6px 8px; font-size: 0.82rem; }
+    }
+  </style>
 </head>
 <body>
-
+<div id="app">
   <header class="header">
     <div class="header-left">
       <svg class="header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg>
-      <h1 class="header-title">每周关注</h1>
+      <h1 class="header-title">股票池</h1>
+      <span class="update-time" id="update-time"></span>
     </div>
     <div class="header-right">
-      <select id="week-selector" aria-label="选择周次">
-        <option value="">加载中...</option>
-      </select>
-      <span id="date-range" class="date-range"></span>
+      <input type="text" class="search-box" id="search" placeholder="搜索代码或名称..." oninput="render()">
     </div>
   </header>
 
-  <main class="main">
-    <div class="info-bar">
-      <span id="pattern-info" class="pattern-info" style="display:none;"></span>
-      <span id="stocks-count" class="stocks-count"></span>
-      <button id="export-btn" class="export-btn" title="导出股票代码为TXT">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        导出代码
-      </button>
-    </div>
-    <div id="sector-stats" class="sector-stats" style="display:none;"></div>
-    <div class="table-wrapper">
-      <table id="watchlist-table">
-        <thead>
-          <tr>
-            <th class="col-code">代码</th>
-            <th class="col-name">名称</th>
-            <th class="col-sector">板块</th>
-            <th class="col-reason">关注理由</th>
-            <th class="col-price">现价</th>
-            <th class="col-rating">评级</th>
-          </tr>
-        </thead>
-        <tbody id="watchlist-body">
-        </tbody>
-      </table>
-    </div>
-    <div id="empty-state" class="empty-state" style="display:none;">
-      <p>暂无关注数据</p>
-    </div>
-    <div id="error-state" class="error-state" style="display:none;">
-      <p>数据加载失败，请稍后刷新重试</p>
-    </div>
-  </main>
+  <div class="tabs" id="tabs"></div>
+  <div class="stats" id="stats"></div>
+  <div class="table-wrap">
+    <table><thead><tr>
+      <th style="width:40px">#</th>
+      <th style="width:110px">代码</th>
+      <th>名称</th>
+      <th style="width:100px">市场</th>
+      <th style="width:120px">分组</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody></table>
+  </div>
+</div>
 
-  <footer class="footer">
-    <p>以上内容仅为个人研究记录，不构成任何投资建议</p>
-    <p>最后更新：<span id="updated-at">-</span></p>
-  </footer>
+<script>
+let data = null;
+let activeGroup = 'all';
 
-  <script src="js/app.js"></script>
+async function load() {
+  try {
+    const r = await fetch('data/stock_pool.json?' + Date.now());
+    data = await r.json();
+    document.getElementById('update-time').textContent = '更新: ' + (data.updated || '');
+    renderTabs();
+    render();
+  } catch(e) {
+    document.getElementById('tbody').innerHTML =
+      '<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">加载失败，请刷新页面</td></tr>';
+  }
+}
+
+function renderTabs() {
+  const groups = data.groups || {};
+  const names = Object.keys(groups);
+  let html = `<button class="tab-btn ${activeGroup === 'all' ? 'active' : ''}" onclick="switchGroup('all')">全部 <span class="count">${totalCount()}</span></button>`;
+  for (const name of names) {
+    const cnt = groups[name].length;
+    html += `<button class="tab-btn ${activeGroup === name ? 'active' : ''}" onclick="switchGroup('${name.replace(/'/g, "\\'")}')">${name} <span class="count">${cnt}</span></button>`;
+  }
+  document.getElementById('tabs').innerHTML = html;
+}
+
+function totalCount() {
+  let sum = 0;
+  for (const k in data.groups) sum += data.groups[k].length;
+  return sum;
+}
+
+function switchGroup(name) {
+  activeGroup = name;
+  renderTabs();
+  render();
+}
+
+function render() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const groups = data.groups || {};
+  const rows = [];
+  const names = activeGroup === 'all' ? Object.keys(groups) : [activeGroup];
+
+  for (const gname of names) {
+    const stocks = groups[gname] || [];
+    for (const s of stocks) {
+      const code = (s.market === 'sh' ? 'sh' : 'sz') + s.code;
+      const kw = (s.code + s.name).toLowerCase();
+      if (q && !kw.includes(q)) continue;
+      rows.push({ code: s.code, name: s.name, market: s.market, group: gname });
+    }
+  }
+
+  // 按分组排序，同组按代码排序
+  rows.sort((a, b) => a.group.localeCompare(b.group) || a.code.localeCompare(b.code));
+
+  document.getElementById('stats').innerHTML =
+    `<span>共 <span class="num">${rows.length}</span> 只股票</span>` +
+    `<span>分组 <span class="num">${activeGroup === 'all' ? Object.keys(groups).length : 1}</span> 个</span>`;
+
+  let html = '';
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i];
+    const mktLabel = r.market === 'sh' ? '上海' : '深圳';
+    const mktClass = r.market === 'sh' ? 'market-sh' : 'market-sz';
+    html += `<tr>
+      <td style="color:rgba(255,255,255,0.2);font-size:0.8rem;">${i + 1}</td>
+      <td class="code-cell">${r.code}</td>
+      <td class="name-cell">${r.name}</td>
+      <td><span class="${mktClass}">●</span> ${mktLabel}</td>
+      <td><span class="group-tag">${r.group}</span></td>
+    </tr>`;
+  }
+  document.getElementById('tbody').innerHTML = html || '<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">无匹配结果</td></tr>';
+}
+
+load();
+</script>
 </body>
 </html>

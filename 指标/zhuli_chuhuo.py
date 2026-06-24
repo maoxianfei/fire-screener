@@ -9,7 +9,7 @@
 
 信号说明：
 - 主力出货（绿色）: VAR5 上升，高点创新高时出货
-- 承接（红色）: VAR5 下降，出货力度减弱
+- 洗盘（红色）: VAR5 下降，出货力度减弱
 
 注意事项（局限性）：
 - 上升趋势中价格反复创新高，HIGH>=HHV(HIGH,33) 条件频繁触发，
@@ -54,7 +54,7 @@ CLI 用法
 输出列说明:
   zlch_var5           核心指标值
   zlch_chuhuo         主力出货（正值=出货信号）
-  zlch_chengjie       承接（正值=承接信号）
+  zlch_chengjie       洗盘（正值=洗盘信号）
 
 依赖：
   指标.zhuli_xichou.sma  — 复用 SMA 递推算法
@@ -162,7 +162,7 @@ if __name__ == '__main__':
         if row['zlch_chuhuo'] > 0:
             signal = '🟢 主力出货'
         elif row['zlch_chengjie'] > 0:
-            signal = '🔴 承接'
+            signal = '🔴 洗盘'
         else:
             signal = '   ─'
         print(f"{row['date']:>12}  {row['close']:>8.2f}  "
