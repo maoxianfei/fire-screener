@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年7月 投资分析</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #0a0f1a;
+      color: #e6edf3;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 15% 30%, rgba(0,255,136,0.03) 0%, transparent 50%),
+                  radial-gradient(ellipse at 85% 70%, rgba(96,165,250,0.03) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+    #app { position: relative; z-index: 1; display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.2);
+      padding: 20px 0;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); }
+    .sidebar-header {
+      padding: 0 16px 16px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 8px;
+    }
+    .sidebar-header h1 { font-size: 0.95rem; font-weight: 600; color: #00cc66; }
+    .sidebar-header .sub { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 4px; }
+    .sidebar .back-link {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px; font-size: 0.82rem;
+      color: rgba(255,255,255,0.4); text-decoration: none;
+      transition: color 0.2s; margin-bottom: 8px;
+    }
+    .sidebar .back-link:hover { color: #00cc66; }
+    .toc-item {
+      display: block; padding: 5px 16px 5px 20px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: all 0.2s;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+    }
+    .toc-item:hover { color: #e6edf3; background: rgba(255,255,255,0.03); }
+    .toc-item.h2 { padding-left: 20px; }
+    .toc-item.h3 { padding-left: 32px; font-size: 0.74rem; }
+    .toc-item.h4 { padding-left: 44px; font-size: 0.72rem; }
+    .toc-item.active {
+      color: #00cc66; border-left-color: #00cc66;
+      background: rgba(0,204,102,0.06);
+    }
+
+    /* Main content */
+    .main {
+      flex: 1; min-width: 0;
+      padding: 32px 40px 80px;
+      max-width: 960px;
+    }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { padding: 16px 20px 60px; }
+      .mobile-nav { display: flex !important; }
+    }
+    .mobile-nav {
+      display: none; position: sticky; top: 0; z-index: 10;
+      background: rgba(10,15,26,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 10px 16px; align-items: center; gap: 10px;
+    }
+    .mobile-nav .back-link {
+      color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem;
+    }
+    .mobile-nav .back-link:hover { color: #00cc66; }
+    .mobile-nav-title { font-size: 0.85rem; font-weight: 600; color: #00cc66; }
+    .mobile-toc-toggle {
+      margin-left: auto; background: none; border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5); padding: 4px 10px; border-radius: 4px;
+      cursor: pointer; font-size: 0.78rem;
+    }
+    .mobile-toc-panel {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 100; background: rgba(0,0,0,0.8); padding: 20px; overflow-y: auto;
+    }
+    .mobile-toc-panel.open { display: block; }
+    .mobile-toc-close {
+      display: block; margin-left: auto;
+      background: none; border: none; color: rgba(255,255,255,0.5);
+      font-size: 1.2rem; cursor: pointer; padding: 4px 8px;
+    }
+
+    /* Markdown content styling */
+    .content { line-height: 1.8; color: #d4dce8; }
+    .content h1 {
+      font-size: 1.5rem; font-weight: 700; color: #f0f6ff;
+      margin: 2rem 0 1rem; padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .content h2 {
+      font-size: 1.2rem; font-weight: 600; color: #e6edf3;
+      margin: 1.8rem 0 0.8rem; padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .content h3 {
+      font-size: 1.05rem; font-weight: 600; color: #d4dce8;
+      margin: 1.4rem 0 0.6rem;
+    }
+    .content h4 {
+      font-size: 0.95rem; font-weight: 600; color: #c8d0dc;
+      margin: 1rem 0 0.4rem;
+    }
+    .content p { margin: 0.6rem 0; }
+    .content a { color: #60a5fa; text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+    .content strong { color: #f0f6ff; font-weight: 600; }
+    .content em { color: #94a3b8; }
+    .content code {
+      background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 3px;
+      font-family: "SF Mono", "Fira Code", monospace; font-size: 0.85em;
+      color: #67e8f9;
+    }
+    .content pre {
+      background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px; padding: 12px 16px; overflow-x: auto;
+      margin: 0.8rem 0;
+    }
+    .content pre code { background: none; padding: 0; color: #e6edf3; }
+    .content blockquote {
+      border-left: 3px solid #00cc66; padding: 8px 16px;
+      margin: 0.8rem 0; background: rgba(0,204,102,0.04);
+      border-radius: 0 4px 4px 0;
+    }
+    .content blockquote p { margin: 0; color: rgba(255,255,255,0.6); }
+    .content hr {
+      border: none; border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 2rem 0;
+    }
+    .content ul, .content ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .content li { margin: 0.3rem 0; }
+    .content li::marker { color: rgba(255,255,255,0.3); }
+    .content table {
+      width: 100%; border-collapse: collapse; margin: 0.8rem 0;
+      font-size: 0.88rem;
+    }
+    .content th {
+      padding: 8px 12px; text-align: left; font-size: 0.78rem;
+      color: rgba(255,255,255,0.4); font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-transform: uppercase; letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.02);
+    }
+    .content td { padding: 7px 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .content tr:hover td { background: rgba(255,255,255,0.02); }
+    .content img { max-width: 100%; border-radius: 4px; }
+
+    /* Loading */
+    .loading {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 80px 20px; gap: 16px;
+    }
+    .loading-spinner {
+      width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.06);
+      border-top-color: #00cc66; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-size: 0.85rem; color: rgba(255,255,255,0.3); }
+
+    /* Error */
+    .error-state {
+      text-align: center; padding: 60px 20px; color: rgba(255,255,255,0.3);
+    }
+    .error-state .icon { font-size: 2rem; margin-bottom: 12px; }
+    .error-state .msg { font-size: 0.9rem; }
+    .error-state .retry {
+      display: inline-block; margin-top: 12px; padding: 6px 16px;
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
+      color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem;
+    }
+    .error-state .retry:hover { border-color: #00cc66; color: #00cc66; }
+
+    /* Tag for sector/priority */
+    .tag { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: 0.75rem; }
+    .tag-green { background: rgba(0,204,102,0.12); color: #00cc66; }
+    .tag-blue { background: rgba(96,165,250,0.1); color: #60a5fa; }
+    .tag-yellow { background: rgba(251,191,36,0.1); color: #fbbf24; }
+    .tag-red { background: rgba(255,68,68,0.1); color: #ff4444; }
+
+    /* Status dots */
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+    .status-dot.green { background: #00cc66; }
+    .status-dot.yellow { background: #fbbf24; }
+    .status-dot.red { background: #ff4444; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!-- Desktop Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>📊 7月投资分析</h1>
+      <div class="sub">2026-06-24 · 基于十五五框架</div>
+    </div>
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      返回股票池
+    </a>
+    <div id="toc"></div>
+  </aside>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <a href="index.html" class="back-link">←</a>
+    <span class="mobile-nav-title">📊 7月投资分析</span>
+    <button class="mobile-toc-toggle" onclick="toggleMobileToc()">目录</button>
+  </div>
+  <div class="mobile-toc-panel" id="mobile-toc">
+    <button class="mobile-toc-close" onclick="toggleMobileToc()">✕</button>
+    <div id="mobile-toc-content"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">加载分析报告...</div>
+    </div>
+    <div id="error-state" class="error-state" style="display:none;">
+      <div class="icon">⚠️</div>
+      <div class="msg" id="error-msg">加载失败</div>
+      <button class="retry" onclick="load()">重新加载</button>
+    </div>
+    <div id="content" class="content" style="display:none;"></div>
+  </main>
+</div>
+
+<script>
+async function load() {
+  const loadingEl = document.getElementById('loading');
+  const errorEl = document.getElementById('error-state');
+  const contentEl = document.getElementById('content');
+
+  loadingEl.style.display = 'flex';
+  errorEl.style.display = 'none';
+  contentEl.style.display = 'none';
+
+  try {
+    const resp = await fetch('data/2026年7月投资分析.md?' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const markdown = await resp.text();
+
+    // Render markdown to HTML
+    const html = marked.parse(markdown, { breaks: true, gfm: true });
+    contentEl.innerHTML = html;
+    contentEl.style.display = 'block';
+    loadingEl.style.display = 'none';
+
+    // Generate TOC
+    generateToc();
+  } catch (e) {
+    loadingEl.style.display = 'none';
+    errorEl.style.display = 'block';
+    document.getElementById('error-msg').textContent = '加载失败: ' + e.message;
+  }
+}
+
+function generateToc() {
+  const content = document.getElementById('content');
+  const headings = content.querySelectorAll('h1, h2, h3, h4');
+  const tocContainer = document.getElementById('toc');
+  const mobileTocContainer = document.getElementById('mobile-toc-content');
+  let tocHtml = '';
+  let mobileTocHtml = '';
+
+  headings.forEach(function(h, idx) {
+    const level = h.tagName.toLowerCase();
+    const text = h.textContent;
+    
+    // Add id to heading for anchor links
+    const id = 'heading-' + idx;
+    h.id = id;
+
+    const itemHtml = '<a class="toc-item ' + level + '" href="#' + id + '" onclick="closeMobileToc()">' + text + '</a>';
+    tocHtml += itemHtml;
+    mobileTocHtml += itemHtml;
+  });
+
+  tocContainer.innerHTML = tocHtml;
+  mobileTocContainer.innerHTML = mobileTocHtml;
+
+  // Highlight active heading on scroll
+  const tocItems = tocContainer.querySelectorAll('.toc-item');
+  if (tocItems.length === 0) return;
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocItems.forEach(function(item) {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+
+  headings.forEach(function(h) { observer.observe(h); });
+}
+
+function toggleMobileToc() {
+  document.getElementById('mobile-toc').classList.toggle('open');
+}
+
+function closeMobileToc() {
+  document.getElementById('mobile-toc').classList.remove('open');
+}
+
+// Handle anchor links for smooth scroll
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[href^="#"]');
+  if (link) {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
+
+load();
+</script>
+</body>
+</html>
