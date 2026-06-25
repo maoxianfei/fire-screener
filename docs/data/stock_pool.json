@@ -298,6 +298,25 @@
         "name": "紫光股份",
         "market": "sz"
       }
+    ],
+    "7月推荐ETF": [
+      { "code": "159611", "name": "电力ETF广发", "market": "sz", "remark": "夏季用电高峰，确定性最高" },
+      { "code": "516830", "name": "储能ETF", "market": "sh", "remark": "夏季用电紧张·储能调峰验证" },
+      { "code": "562030", "name": "信创ETF", "market": "sh", "remark": "8月招标爆发，当前底部布局" },
+      { "code": "159852", "name": "软件ETF嘉实", "market": "sz", "remark": "信创配套+基础软件替代" },
+      { "code": "159327", "name": "半导体设备ETF万家", "market": "sz", "remark": "中报确认后加仓·国产验证" },
+      { "code": "516700", "name": "数字经济ETF", "market": "sh", "remark": "数据要素入表细则预期" },
+      { "code": "562510", "name": "旅游ETF", "market": "sh", "remark": "暑期旅游旺季，持有" }
+    ],
+    "7月推荐个股": [
+      { "code": "600089", "name": "特变电工", "market": "sh", "remark": "变压器龙头+特高压，夏季用电双驱动" },
+      { "code": "000400", "name": "许继电气", "market": "sz", "remark": "特高压直流核心供应商" },
+      { "code": "300014", "name": "亿纬锂能", "market": "sz", "remark": "储能+消费电池，关注中报窗口" },
+      { "code": "600536", "name": "中国软件", "market": "sh", "remark": "麒麟OS龙头，信创招标直接受益" },
+      { "code": "688692", "name": "达梦数据", "market": "sh", "remark": "国产数据库龙头，信创核心" },
+      { "code": "300379", "name": "东方通", "market": "sz", "remark": "中间件龙头+数据要素概念" },
+      { "code": "002371", "name": "北方华创", "market": "sz", "remark": "全栈半导体设备龙头，中报验证" },
+      { "code": "000099", "name": "中信海直", "market": "sz", "remark": "通航运营龙头，低空立法催化" }
     ]
   }
 }

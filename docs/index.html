@@ -161,8 +161,9 @@
       <th style="width:40px">#</th>
       <th style="width:110px">代码</th>
       <th>名称</th>
-      <th style="width:100px">市场</th>
-      <th style="width:120px">分组</th>
+      <th style="width:80px">市场</th>
+      <th style="width:100px">分组</th>
+      <th>备注</th>
     </tr></thead>
     <tbody id="tbody"></tbody></table>
   </div>
@@ -181,7 +182,7 @@ async function load() {
     render();
   } catch(e) {
     document.getElementById('tbody').innerHTML =
-      '<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">加载失败，请刷新页面</td></tr>';
+      '<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">加载失败，请刷新页面</td></tr>';
   }
 }
 
@@ -220,7 +221,7 @@ function render() {
       const code = (s.market === 'sh' ? 'sh' : 'sz') + s.code;
       const kw = (s.code + s.name).toLowerCase();
       if (q && !kw.includes(q)) continue;
-      rows.push({ code: s.code, name: s.name, market: s.market, group: gname });
+      rows.push({ code: s.code, name: s.name, market: s.market, group: gname, remark: s.remark || '' });
     }
   }
 
@@ -242,9 +243,10 @@ function render() {
       <td class="name-cell">${r.name}</td>
       <td><span class="${mktClass}">●</span> ${mktLabel}</td>
       <td><span class="group-tag">${r.group}</span></td>
+      <td style="font-size:0.78rem;color:rgba(255,255,255,0.5);max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${r.remark}">${r.remark || ''}</td>
     </tr>`;
   }
-  document.getElementById('tbody').innerHTML = html || '<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">无匹配结果</td></tr>';
+  document.getElementById('tbody').innerHTML = html || '<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,0.3);padding:40px;">无匹配结果</td></tr>';
 }
 
 load();
