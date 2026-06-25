@@ -1,54 +1,70 @@
-# 每周关注股票列表
+# 十五五投资框架 & 股票池
 
-部署在 GitHub Pages 的静态网站，每周更新关注股票列表，表格形式展示，方便程序扫描采集。
+> 部署于 GitHub Pages 的静态网站，包含股票池查看 + 十五五投资框架分析系统
 
-## 项目结构
+---
+
+## 目录结构
 
 ```
 docs/
-├── index.html                  # 主页面
-├── css/
-│   └── style.css               # 样式
-├── js/
-│   └── app.js                  # 前端逻辑
+├── index.html                       # 主页面 — 股票池查看器
+├── analysis.html                    # 当月操作建议独立页
+├── framework.html                   # 十五五投资框架阅读器
+├── README.md                        # 本文档
+│
+├── css/style.css                    # 样式（旧watchlist系统用）
+├── js/app.js                        # 前端逻辑（旧watchlist系统用）
+│
 ├── data/
-│   ├── watchlists.json         # 当周数据 + 历史索引
-│   └── history/
-│       └── 2026-06-08.json     # 归档周数据
-└── README.md                   # 本文档
+│   ├── stock_pool.json              # 股票池数据（分组+代码+备注）
+│   ├── watchlists.json              # 旧周关注列表（兼容保留）
+│   ├── export.txt                   # 导出的代码列表
+│   └── history/                     # 历史周数据归档
+│       ├── 2026-06-02.json
+│       └── 2026-06-08.json
+│
+└── 十五五投资框架/                    # 投资分析系统
+    ├── 政策/
+    │   └── 政策总纲.md               # 宏观定位+量化目标+方法论+仓位管理
+    ├── 投资框架/
+    │   ├── index.md                  # 框架总纲
+    │   ├── 1-科技自主可控.md ~ 8-资本市场改革.md   # 8大投资方向
+    │   ├── 月度轮动.md               # 月度板块推荐
+    │   ├── 风险监测.md               # 风险预警体系
+    │   └── 事件日历.md               # 政策/技术事件时间轴
+    └── 每月投资操作/
+        └── 2026年7月操作建议.md       # 当月ETF+个股操作建议表
 ```
 
-## 数据格式规范
+---
 
-### watchlists.json
+## 页面功能
+
+| 页面 | 访问路径 | 说明 |
+|------|---------|------|
+| **股票池** | `index.html` | 查看所有分组股票，支持搜索/分组筛选/导出代码 |
+| **7月操作建议** | `analysis.html` | 当月ETF/个股操作建议、买入区间、止损位 |
+| **十五五框架** | `framework.html` | 浏览全部框架文档（政策/方向/月度操作），侧边栏导航 |
+
+---
+
+## 股票池数据格式 (stock_pool.json)
 
 ```json
 {
-  "current": {
-    "date_start": "YYYY.MM.DD",
-    "date_end": "YYYY.MM.DD",
-    "updated_at": "YYYY.MM.DD",
-    "stocks": [
+  "source": "数据来源",
+  "updated": "2026-06-24",
+  "groups": {
+    "分组名称": [
       {
         "code": "600519",
-        "name": "贵州茅台",
-        "sector": "白酒",
-        "reason": "关注理由",
-        "target_price": 1850.00,
-        "stop_loss": 1680.00,
-        "current_price": 1765.50,
-        "rating": 3
+        "name": "股票名称",
+        "market": "sh",
+        "remark": "推荐理由（可选，展示在备注列）"
       }
     ]
-  },
-  "history": [
-    {
-      "date_start": "YYYY.MM.DD",
-      "date_end": "YYYY.MM.DD",
-      "stocks_count": 8,
-      "file": "data/history/YYYY-MM-DD.json"
-    }
-  ]
+  }
 }
 ```
 
@@ -58,82 +74,85 @@ docs/
 |------|------|------|------|
 | code | string | 是 | 股票代码，如 "600519" |
 | name | string | 是 | 股票名称 |
-| sector | string | 是 | 所属板块（见颜色映射表） |
-| reason | string | 是 | 关注理由 |
-| target_price | float/null | 否 | 目标价，null 表示未设 |
-| stop_loss | float/null | 否 | 止损价，null 表示未设 |
-| current_price | float/null | 否 | 当前价，null 表示未填 |
-| rating | int | 是 | 评级 1-5 星 |
+| market | string | 是 | 市场：`sh` 上海 / `sz` 深圳 |
+| remark | string | 否 | 备注/推荐理由，有值时会显示在「备注」列 |
 
-### 历史文件 data/history/YYYY-MM-DD.json
+### 当前分组
 
-格式与 `current` 相同，但不包含 `current` 和 `history` 外层，直接是：
+| 分组 | 说明 |
+|------|------|
+| etf | 长期关注的ETF池 |
+| 长鑫产业链 | 长鑫存储相关产业链个股 |
+| **7月推荐ETF** | 当月ETF操作建议（带推荐理由） |
+| **7月推荐个股** | 当月个股操作建议（带推荐理由） |
 
-```json
-{
-  "date_start": "YYYY.MM.DD",
-  "date_end": "YYYY.MM.DD",
-  "updated_at": "YYYY.MM.DD",
-  "stocks": [...]
-}
+每月初更新「7月推荐」分组为新的月份。
+
+---
+
+## 十五五投资框架
+
+基于《十五五规划纲要》（2026-2030）的政策投资框架。
+
+### 三级分类
+
+| 分类 | 目录 | 内容 |
+|------|------|------|
+| **政策** | `政策/` | 宏观定位、量化目标、选股方法论、仓位管理、5年节奏 |
+| **投资框架** | `投资框架/` | 8大投资方向、月度轮动、风险监测、事件日历 |
+| **每月投资操作** | `每月投资操作/` | 当月ETF/个股操作建议表 |
+
+### 使用方法
+
+1. 打开 `framework.html` → 左侧导航栏选择文档
+2. 或直接访问：`framework.html?file=投资框架/index.md`
+3. URL参数 `?file=路径/文件名.md` 可直接定位到指定文档
+
+---
+
+## 每月更新流程
+
+### 月初更新操作建议
+
+1. 在 `十五五投资框架/每月投资操作/` 创建 `YYYY年MM月操作建议.md`
+   - 格式参考：ETF表 + 个股表 + 事件日历 + 风险提示
+2. 更新 `data/stock_pool.json` 中的推荐分组
+   - 修改分组名（如 `7月推荐ETF` → `8月推荐ETF`）
+   - 更新标的和推荐理由
+3. 更新 `framework.html` 中的 `DOCS.details` 列表
+   - 加新文件、删旧文件
+4. 更新 `analysis.html` 中的 fetch 路径
+
+### 提交推送
+
+```bash
+cd docs/
+git add .
+git commit -m "feat: YYYY年MM月操作建议更新"
+git push
 ```
 
-文件名使用周开始日期，连字符格式：`2026-06-08.json`。
+GitHub Pages 约 **1 分钟**后自动更新。
 
-## 板块颜色映射
+---
 
-| 板块 | CSS 类名 | 背景色 | 文字色 |
-|------|----------|--------|--------|
-| 白酒 | sector-白酒 | #FEF3C7 | #92400E |
-| 新能源 | sector-新能源 | #DBEAFE | #1E40AF |
-| 医药 | sector-医药 | #D1FAE5 | #065F46 |
-| 科技 | sector-科技 | #E0E7FF | #3730A3 |
-| 金融 | sector-金融 | #FCE7F3 | #9D174D |
-| 消费 | sector-消费 | #FEF9C3 | #854D0E |
-| 其他 | sector-default | #F3F4F6 | #4B5563 |
+## 部署配置
 
-新增板块颜色：在 `css/style.css` 中添加 `.sector-XXX` 样式，在 `js/app.js` 的 `SECTOR_CLASSES` 中添加映射。
+| 项目 | 值 |
+|------|-----|
+| 仓库 | `maoxianfei/fire-screener` |
+| 分支 | `master` |
+| 目录 | `/docs` |
+| 访问地址 | `https://maoxianfei.github.io/fire-screener/` |
 
-## 每周更新流程
+---
 
-1. 打开 `docs/data/watchlists.json`
-2. 将 `current` 的 stocks 复制到 `docs/data/history/YYYY-MM-DD.json`（用 date_start 日期命名）
-3. 在 `history` 数组头部追加旧周条目（date_start, date_end, stocks_count, file）
-4. 写入新一周的 `current` 数据
-5. 提交并推送：
-   ```bash
-   cd docs/
-   git add .
-   git commit -m "更新关注列表 YYYY.MM.DD"
-   git push
-   ```
-6. GitHub Pages 自动更新（约 1 分钟生效）
+## 文档引用关系
 
-## GitHub Pages 部署配置
+```
+政策总纲 ──→ 投资框架（8大方向+月度轮动+风险+日历）──→ 每月操作建议
+   ↑                      ↑                              ↑
+  宏观底层逻辑           具体产业分析                    落地执行
+```
 
-1. 进入仓库 Settings → Pages
-2. Source 选择 `master` 分支，目录选 `/docs`
-3. 保存，等待部署完成
-4. 访问地址：`https://maoxianfei.github.io/strategy/`
-
-## 程序采集数据
-
-程序可通过以下方式获取数据：
-
-1. **直接请求 JSON**（推荐）：
-   ```
-   https://maoxianfei.github.io/strategy/data/watchlists.json
-   https://maoxianfei.github.io/strategy/data/history/2026-06-08.json
-   ```
-
-2. **解析 HTML 表格**：页面 `<table id="watchlist-table">` 语义化结构，每行含 `data-code`、`data-sector`、`data-rating` 属性。
-
-## 故障排查
-
-| 问题 | 原因 | 解决 |
-|------|------|------|
-| 页面空白 | JSON 加载失败 | 检查文件路径是否正确，浏览器控制台查看错误 |
-| 表格不显示 | JSON 格式错误 | 用 JSON validator 校验 watchlists.json |
-| 历史切换失败 | history 文件不存在 | 检查 file 路径是否与实际文件一致 |
-| 样式错乱 | CSS 未加载 | 检查 css/style.css 路径 |
-| 手机端表格超出 | 正常，横滚查看 | 已做响应式横滚处理 |
+> 初次使用建议从 `政策总纲` 开始了解宏观定位，再进入 `投资框架` 选择具体方向，最后参考 `每月操作建议` 执行。
