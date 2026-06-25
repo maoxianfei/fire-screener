@@ -164,25 +164,25 @@
 <script>
 const DOCS = {
   core: [
-    { file: 'index.md', label: '📋 框架总纲', desc: '方法论 · 8主线一览 · 使用指引' },
-    { file: '月度轮动.md', label: '📅 月度轮动', desc: '每月板块/产业推荐与配置' },
-    { file: '风险监测.md', label: '⚠️ 风险监测', desc: '宏观/市场/方向性风险' },
-    { file: '事件日历.md', label: '📌 事件日历', desc: '政策/技术/事件时间轴' },
+    { dir: '投资框架', file: 'index.md', label: '📋 框架总纲', desc: '方法论 · 8主线一览 · 使用指引' },
+    { dir: '投资框架', file: '月度轮动.md', label: '📅 月度轮动', desc: '每月板块/产业推荐与配置' },
+    { dir: '投资框架', file: '风险监测.md', label: '⚠️ 风险监测', desc: '宏观/市场/方向性风险' },
+    { dir: '投资框架', file: '事件日历.md', label: '📌 事件日历', desc: '政策/技术/事件时间轴' },
   ],
   directions: [
-    { file: '1-科技自主可控.md', label: '🖥️ 科技自主可控', desc: '半导体·工业母机·先进材料' },
-    { file: '2-新兴产业未来产业.md', label: '🚀 新兴产业未来产业', desc: '机器人·低空·量子·6G' },
-    { file: '3-AI数字中国.md', label: '🤖 AI数字中国', desc: '算力·大模型·数据要素' },
-    { file: '4-新型能源体系.md', label: '⚡ 新型能源体系', desc: '风光核电·储能·氢能' },
-    { file: '5-提振消费.md', label: '🛍️ 提振消费', desc: '服务·大宗·新型消费' },
-    { file: '6-基础设施.md', label: '🏗️ 基础设施', desc: '交通·卫星·新基建·水网' },
-    { file: '7-国家安全.md', label: '🛡️ 国家安全', desc: '军工·网安·粮食能源安全' },
-    { file: '8-资本市场改革.md', label: '🏦 资本市场改革', desc: '券商·科技金融·耐心资本' },
+    { dir: '投资框架', file: '1-科技自主可控.md', label: '🖥️ 科技自主可控', desc: '半导体·工业母机·先进材料' },
+    { dir: '投资框架', file: '2-新兴产业未来产业.md', label: '🚀 新兴产业未来产业', desc: '机器人·低空·量子·6G' },
+    { dir: '投资框架', file: '3-AI数字中国.md', label: '🤖 AI数字中国', desc: '算力·大模型·数据要素' },
+    { dir: '投资框架', file: '4-新型能源体系.md', label: '⚡ 新型能源体系', desc: '风光核电·储能·氢能' },
+    { dir: '投资框架', file: '5-提振消费.md', label: '🛍️ 提振消费', desc: '服务·大宗·新型消费' },
+    { dir: '投资框架', file: '6-基础设施.md', label: '🏗️ 基础设施', desc: '交通·卫星·新基建·水网' },
+    { dir: '投资框架', file: '7-国家安全.md', label: '🛡️ 国家安全', desc: '军工·网安·粮食能源安全' },
+    { dir: '投资框架', file: '8-资本市场改革.md', label: '🏦 资本市场改革', desc: '券商·科技金融·耐心资本' },
   ],
   details: [
-    { file: '2026年7月投资分析.md', label: '📊 7月投资分析', desc: '7月布局·ETF/个股·操作时间线' },
-    { file: 'hermes-framework.md', label: '📚 Hermes框架', desc: '宏观定位·选股方法论·仓位管理' },
-    { file: 'hermes-轮动日历.md', label: '🗓️ Hermes轮动日历', desc: '2026-2030逐月炒作日历' },
+    { dir: '每月投资操作', file: '2026年7月投资分析.md', label: '📊 7月投资分析', desc: '7月布局·ETF/个股·操作时间线' },
+    { dir: '政策', file: 'hermes-framework.md', label: '📚 Hermes框架', desc: '宏观定位·选股方法论·仓位管理' },
+    { dir: '政策', file: 'hermes-轮动日历.md', label: '🗓️ Hermes轮动日历', desc: '2026-2030逐月炒作日历' },
   ],
 };
 
@@ -195,8 +195,9 @@ function buildSidebar() {
   containerIds.forEach((id, si) => {
     const ul = document.getElementById(id);
     ul.innerHTML = sections[si].map(function(doc) {
-      const isActive = doc.file === currentFile;
-      return '<li><a class="doc-link ' + (isActive ? 'active' : '') + '" href="?file=' + encodeURIComponent(doc.file) + '" title="' + doc.desc + '">' +
+      const fullPath = doc.dir + '/' + doc.file;
+      const isActive = fullPath === currentFile;
+      return '<li><a class="doc-link ' + (isActive ? 'active' : '') + '" href="?file=' + encodeURIComponent(fullPath) + '" title="' + doc.desc + '">' +
         '<span class="icon">' + doc.label.charAt(0) + '</span>' +
         doc.label.slice(2) +
         '</a></li>';
@@ -206,12 +207,12 @@ function buildSidebar() {
 
 function updateMobileTitle(file) {
   const allDocs = [...DOCS.core, ...DOCS.directions, ...DOCS.details];
-  const found = allDocs.find(function(d) { return d.file === file; });
+  const found = allDocs.find(function(d) { return (d.dir + '/' + d.file) === file; });
   document.getElementById('mobile-title').textContent = found ? found.label.replace(/^.{1,2}\s/, '') : '十五五投资框架';
 }
 
 async function loadFile(file) {
-  currentFile = file || 'index.md';
+  currentFile = file || '投资框架/index.md';
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error-state');
   const contentEl = document.getElementById('content');
@@ -265,7 +266,7 @@ document.addEventListener('click', function(e) {
 
 // Get file from URL params
 const params = new URLSearchParams(window.location.search);
-const fileParam = params.get('file') || 'index.md';
+const fileParam = params.get('file') || '投资框架/index.md';
 loadFile(fileParam);
 </script>
 </body>
