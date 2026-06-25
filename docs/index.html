@@ -84,6 +84,16 @@
     .name-cell { font-weight: 500; }
     .market-sh { color: #00cc66; font-size: 0.7rem; }
     .market-sz { color: #ff4444; font-size: 0.7rem; }
+    .board-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 3px;
+      font-size: 0.72rem; font-weight: 500;
+    }
+    .board-tag[data-board="科创板"] { background: rgba(96,165,250,0.12); color: #60a5fa; }
+    .board-tag[data-board="创业板"] { background: rgba(255,68,68,0.1); color: #ff6b6b; }
+    .board-tag[data-board="中小板"] { background: rgba(251,191,36,0.1); color: #fbbf24; }
+    .board-tag[data-board="深圳主板"] { background: rgba(255,68,68,0.06); color: #ff8888; }
+    .board-tag[data-board="上海主板"] { background: rgba(0,204,102,0.08); color: #00cc66; }
+    .board-tag[data-board="北交所"] { background: rgba(168,85,247,0.1); color: #a855f7; }
     .group-tag {
       display: inline-block; padding: 2px 8px; border-radius: 3px;
       font-size: 0.75rem; background: rgba(96,165,250,0.1); color: rgba(96,165,250,0.7);
@@ -161,7 +171,7 @@
       <th style="width:40px">#</th>
       <th style="width:110px">代码</th>
       <th>名称</th>
-      <th style="width:80px">市场</th>
+      <th style="width:80px">板块</th>
       <th style="width:100px">分组</th>
       <th>备注</th>
     </tr></thead>
@@ -235,13 +245,20 @@ function render() {
   let html = '';
   for (let i = 0; i < rows.length; i++) {
     const r = rows[i];
-    const mktLabel = r.market === 'sh' ? '上海' : '深圳';
-    const mktClass = r.market === 'sh' ? 'market-sh' : 'market-sz';
+    const board = (function(code) {
+      if (code.startsWith('688') || code.startsWith('689')) return '科创板';
+      if (code.startsWith('300') || code.startsWith('301')) return '创业板';
+      if (code.startsWith('002')) return '中小板';
+      if (code.startsWith('000') || code.startsWith('001')) return '深圳主板';
+      if (code.startsWith('600') || code.startsWith('601') || code.startsWith('603') || code.startsWith('605')) return '上海主板';
+      if (code.startsWith('4') || code.startsWith('8')) return '北交所';
+      return r.market === 'sh' ? '上海' : '深圳';
+    })(r.code);
     html += `<tr>
       <td style="color:rgba(255,255,255,0.2);font-size:0.8rem;">${i + 1}</td>
       <td class="code-cell">${r.code}</td>
       <td class="name-cell">${r.name}</td>
-      <td><span class="${mktClass}">●</span> ${mktLabel}</td>
+      <td><span class="board-tag" data-board="${board}">${board}</span></td>
       <td><span class="group-tag">${r.group}</span></td>
       <td style="font-size:0.78rem;color:rgba(255,255,255,0.5);max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${r.remark}">${r.remark || ''}</td>
     </tr>`;
